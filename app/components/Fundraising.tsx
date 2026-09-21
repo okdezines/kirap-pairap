@@ -1,4 +1,8 @@
+"use client";
+
+import { motion } from "motion/react";
 import { fundraising } from "../data/fundraising";
+
 
 export default function Fundraising() {
     const progress = Math.min(
@@ -28,20 +32,57 @@ export default function Fundraising() {
                         </p>
 
                         <h2 className="text-5xl font-black uppercase leading-[0.9] tracking-tight md:text-7xl">
-                            Build
-                            <br />
-                            the band.
+                            <span className="block overflow-hidden">
+                                <motion.span
+                                    initial={{ y: "110%" }}
+                                    whileInView={{ y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 0.8,
+                                        ease: [0.22, 1, 0.36, 1],
+                                    }}
+                                    className="block"
+                                >
+                                    Build
+                                </motion.span>
+                            </span>
+
+                            <span className="block overflow-hidden">
+                                <motion.span
+                                    initial={{ y: "110%" }}
+                                    whileInView={{ y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 0.8,
+                                        delay: 0.12,
+                                        ease: [0.22, 1, 0.36, 1],
+                                    }}
+                                    className="block"
+                                >
+                                    The Band.
+                                </motion.span>
+                            </span>
                         </h2>
                     </div>
 
-                    <div className="flex items-end">
+                    <motion.div
+                        initial={{ opacity: 0, y: 25 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                            duration: 0.7,
+                            delay: 0.25,
+                            ease: "easeOut",
+                        }}
+                        className="flex items-end"
+                    >
                         <p className="max-w-xl text-lg leading-8 text-white/75">
                             We are raising funds to purchase the instruments and
                             equipment needed to establish Kirap Pairap. Every
                             contribution brings us one step closer to rehearsing,
                             performing and sharing our music with the community.
                         </p>
-                    </div>
+                    </motion.div>
 
                 </div>
 
@@ -50,7 +91,15 @@ export default function Fundraising() {
 
                     <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
 
-                        <div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{
+                                duration: 0.7,
+                                ease: "easeOut",
+                            }}
+                        >
                             <p className="text-sm uppercase tracking-[0.25em] text-white/60">
                                 Raised so far
                             </p>
@@ -58,9 +107,18 @@ export default function Fundraising() {
                             <p className="mt-3 text-6xl font-black tracking-tight md:text-8xl">
                                 {money.format(fundraising.raised)}
                             </p>
-                        </div>
+                        </motion.div>
 
-                        <div className="md:text-right">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                duration: 0.8,
+                                delay: 0.2,
+                            }}
+                            className="md:text-right"
+                        >
                             <p className="text-sm uppercase tracking-[0.25em] text-white/60">
                                 Our goal
                             </p>
@@ -68,7 +126,7 @@ export default function Fundraising() {
                             <p className="mt-2 text-3xl font-bold">
                                 {money.format(fundraising.goal)}
                             </p>
-                        </div>
+                        </motion.div>
 
                     </div>
 
@@ -80,9 +138,16 @@ export default function Fundraising() {
                         </div>
 
                         <div className="h-3 overflow-hidden rounded-full bg-black/25">
-                            <div
-                                className="h-full rounded-full bg-white transition-all duration-700"
-                                style={{ width: `${progress}%` }}
+                            <motion.div
+                                initial={{ width: "0%" }}
+                                whileInView={{ width: `${progress}%` }}
+                                viewport={{ once: true, amount: 0.8 }}
+                                transition={{
+                                    duration: 1.4,
+                                    delay: 0.25,
+                                    ease: [0.22, 1, 0.36, 1],
+                                }}
+                                className="h-full rounded-full bg-white"
                             />
                         </div>
                     </div>
@@ -98,8 +163,25 @@ export default function Fundraising() {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3">
                         {fundraising.equipment.map((item, index) => (
-                            <div
+                            <motion.div
                                 key={item.name}
+                                initial={{
+                                    opacity: 0,
+                                    y: 20,
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                }}
+                                viewport={{
+                                    once: true,
+                                    amount: 0.3,
+                                }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: index * 0.08,
+                                    ease: "easeOut",
+                                }}
                                 className="border-t border-white/20 py-7 md:mr-8"
                             >
                                 <div className="flex items-start justify-between gap-4">
@@ -119,7 +201,7 @@ export default function Fundraising() {
                                     </span>
 
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
 
