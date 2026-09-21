@@ -6,6 +6,7 @@ import Journey from "./components/Journey";
 import Navbar from "./components/Navbar";
 import OurPurpose from "./components/OurPurpose";
 import PracticeSessions from "./components/PracticeSessions";
+import OurStory from "./components/OurStory";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <OurPurpose />
+      <OurStory />
       <Fundraising />
       <Journey />
       <PracticeSessions />
