@@ -67,10 +67,7 @@ export default function Navbar() {
                             Journey
                         </Link>
 
-                        <Link
-                            href="/#gallery"
-                            className="text-sm text-white/70 transition-colors hover:text-white"
-                        >
+                        <Link href="/gallery/">
                             Gallery
                         </Link>
 
@@ -156,11 +153,7 @@ export default function Navbar() {
                                 Journey
                             </Link>
 
-                            <Link
-                                href="#gallery"
-                                onClick={closeMenu}
-                                className="border-t border-white/15 py-5 text-4xl font-black uppercase tracking-tight transition hover:text-red-500"
-                            >
+                            <Link href="/gallery/">
                                 Gallery
                             </Link>
 

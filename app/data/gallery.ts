@@ -1,6 +1,7 @@
 export type GalleryItem = {
   id: number;
   type: "image" | "video";
+  category: "Practice" | "Community" | "Performance" | "Behind The Scenes";
   title: string;
   date: string;
   description: string;
@@ -12,29 +13,32 @@ export const galleryItems: GalleryItem[] = [
   {
     id: 1,
     type: "image",
-    title: "The Beginning",
-    date: "2026",
+    category: "Practice",
+    title: "Finding Our Sound",
+    date: "September 2026",
     description:
-      "The early days of Kirap Pairap and the beginning of our journey.",
-    src: "/images/practice/session-01.jpg",
+      "The early rehearsal sessions as Kirap Pairap begins developing its sound.",
+    src: "",
     featured: true,
   },
   {
     id: 2,
     type: "image",
-    title: "Practice Session",
+    category: "Community",
+    title: "Our Community",
     date: "2026",
     description:
-      "Coming together, learning and developing our sound.",
-    src: "/images/practice/session-02.jpg",
+      "The people, culture and community surrounding the Kirap Pairap journey.",
+    src: "",
   },
   {
     id: 3,
     type: "image",
-    title: "Making Music",
+    category: "Behind The Scenes",
+    title: "Building Kirap Pairap",
     date: "2026",
     description:
-      "Building confidence, collaboration and connection through music.",
-    src: "/images/practice/session-03.jpg",
+      "The moments behind the music as the group grows together.",
+    src: "",
   },
 ];
