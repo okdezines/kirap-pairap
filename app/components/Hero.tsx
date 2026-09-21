@@ -114,7 +114,7 @@ export default function Hero() {
                     >
 
                         <a
-                            href="#story"
+                            href="/story/"
                             className="rounded-full bg-white px-7 py-3 text-sm font-bold text-black transition hover:bg-red-500 hover:text-white"
                         >
                             Our Story

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { motion } from "motion/react";
 import { bandMembers } from "../data/members";
@@ -156,8 +157,28 @@ export default function BandMembers() {
                         </motion.article>
                     ))}
                 </div>
+                {/* Link to full Band page */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                        duration: 0.7,
+                        ease: "easeOut",
+                    }}
+                    className="mt-20 border-t border-black/15 pt-10"
+                >
+                    <Link
+                        href="/band/"
+                        className="inline-flex items-center gap-4 text-sm font-bold uppercase tracking-[0.2em] text-black transition-colors hover:text-red-600"
+                    >
+                        Meet the Band
+                        <span aria-hidden="true">→</span>
+                    </Link>
+                </motion.div>
 
             </div>
         </section>
+
     );
 }

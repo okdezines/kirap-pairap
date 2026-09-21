@@ -39,7 +39,7 @@ export default function Navbar() {
 
                     {/* Logo */}
                     <Link
-                        href="/kirap-pairap"
+                        href="/"
                         className="text-xl font-black uppercase tracking-[0.15em] text-white"
                     >
                         Kirap Pairap
@@ -48,29 +48,35 @@ export default function Navbar() {
                     {/* Desktop Navigation */}
                     <div className="hidden items-center gap-8 md:flex">
                         <Link
-                            href="#story"
-                            className="text-sm text-white/70 transition hover:text-white"
+                            href="/story/"
+                            className="text-sm text-white/70 transition-colors hover:text-white"
                         >
                             Our Story
                         </Link>
+                        <Link
+                            href="/band/"
+                            className="text-sm text-white/70 transition-colors hover:text-white"
+                        >
+                            The Band
+                        </Link>
 
                         <Link
-                            href="#journey"
-                            className="text-sm text-white/70 transition hover:text-white"
+                            href="/#journey"
+                            className="text-sm text-white/70 transition-colors hover:text-white"
                         >
                             Journey
                         </Link>
 
                         <Link
-                            href="#gallery"
-                            className="text-sm text-white/70 transition hover:text-white"
+                            href="/#gallery"
+                            className="text-sm text-white/70 transition-colors hover:text-white"
                         >
                             Gallery
                         </Link>
 
                         <Link
-                            href="#support"
-                            className="rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
+                            href="/#support"
+                            className="rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-black"
                         >
                             Support Us
                         </Link>
@@ -133,6 +139,13 @@ export default function Navbar() {
                                 className="border-t border-white/15 py-5 text-4xl font-black uppercase tracking-tight transition hover:text-red-500"
                             >
                                 Our Story
+                            </Link>
+                            <Link
+                                href="/band/"
+                                onClick={closeMenu}
+                                className="..."
+                            >
+                                The Band
                             </Link>
 
                             <Link
