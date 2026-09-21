@@ -1,17 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const [scrolled, setScrolled] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 40);
+        };
+
+        handleScroll();
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     const closeMenu = () => setMenuOpen(false);
+
 
     return (
         <>
-            <header className="absolute left-0 top-0 z-50 w-full">
-                <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-7 lg:px-8">
+            <header
+                className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${scrolled
+                    ? "border-b border-white/10 bg-black/85 backdrop-blur-md"
+                    : "bg-transparent"
+                    }`}
+            >
+                <nav
+                    className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-300 lg:px-8 ${scrolled ? "py-4" : "py-7"
+                        }`}
+                >
 
                     {/* Logo */}
                     <Link
