@@ -1,22 +1,23 @@
 export type PracticeSession = {
   id: number;
+  session: string;
   date: string;
   location: string;
   title: string;
-  summary: string;
+  description: string;
   workedOn: string[];
   learned: string;
   images: string[];
-  video?: string;
 };
 
 export const practiceSessions: PracticeSession[] = [
   {
     id: 1,
+    session: "Session 01",
     date: "September 2026",
     location: "Wellington, New Zealand",
     title: "Finding Our Sound",
-    summary:
+    description:
       "A chapter in the Kirap Pairap journey as we develop our sound, strengthen our connection as a group and bring our musical ideas together.",
     workedOn: [
       "Song arrangements",

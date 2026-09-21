@@ -109,7 +109,7 @@ export default function PracticeSessions() {
                                     </h3>
 
                                     <p className="mt-6 max-w-2xl text-base leading-7 text-black/60 md:text-lg md:leading-8">
-                                        {session.summary}
+                                        {session.description}
                                     </p>
                                 </div>
                             </div>
