@@ -1,4 +1,8 @@
 // import Image from "next/image";
+"use client";
+
+import { motion } from "motion/react";
+
 import { galleryItems } from "../data/gallery";
 
 export default function PracticeSessions() {
@@ -17,29 +21,102 @@ export default function PracticeSessions() {
                         </p>
 
                         <h2 className="text-5xl font-black uppercase leading-[0.9] tracking-tight md:text-7xl">
-                            Finding
-                            <br />
-                            our sound.
+                            <span className="block overflow-hidden">
+                                <motion.span
+                                    initial={{ y: "110%" }}
+                                    whileInView={{ y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 0.8,
+                                        ease: [0.22, 1, 0.36, 1],
+                                    }}
+                                    className="block"
+                                >
+                                    Finding
+                                </motion.span>
+                            </span>
+
+                            <span className="block overflow-hidden">
+                                <motion.span
+                                    initial={{ y: "110%" }}
+                                    whileInView={{ y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 0.8,
+                                        delay: 0.12,
+                                        ease: [0.22, 1, 0.36, 1],
+                                    }}
+                                    className="block"
+                                >
+                                    Our Sound.
+                                </motion.span>
+                            </span>
                         </h2>
                     </div>
 
-                    <div className="flex items-end">
+                    <motion.div
+                        initial={{ opacity: 0, y: 25 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                            duration: 0.7,
+                            delay: 0.25,
+                            ease: "easeOut",
+                        }}
+                        className="flex items-end"
+                    >
                         <p className="max-w-xl text-lg leading-8 text-black/60">
                             Every practice is part of the Kirap Pairap story. We are
                             documenting the rehearsals, conversations and moments
                             that take us from an idea to a performing band.
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Gallery */}
                 <div className="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {galleryItems.map((item) => (
-                        <article key={item.id} className="group">
+                    {galleryItems.map((item, index) => (
+                        <motion.article
+                            key={item.id}
+                            initial={{
+                                opacity: 0,
+                                y: 40,
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                            }}
+                            viewport={{
+                                once: true,
+                                amount: 0.2,
+                            }}
+                            transition={{
+                                duration: 0.7,
+                                delay: index * 0.12,
+                                ease: [0.22, 1, 0.36, 1],
+                            }}
+                            className="group"
+                        >
 
                             {/* Image */}
-                            <div className="relative aspect-[4/5] overflow-hidden bg-neutral-300">
-                                <div className="absolute inset-0 flex items-center justify-center">
+                            <motion.div
+                                whileHover={{ scale: 0.985 }}
+                                transition={{
+                                    duration: 0.35,
+                                    ease: "easeOut",
+                                }}
+                                className="relative aspect-[4/5] overflow-hidden bg-neutral-300"
+                            >
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 0.8,
+                                        delay: 0.35,
+                                    }}
+                                    className="absolute inset-0 flex items-center justify-center"
+                                >
                                     <div className="text-center">
                                         <p className="text-xs font-bold uppercase tracking-[0.3em] text-black/30">
                                             Kirap Pairap
@@ -49,14 +126,14 @@ export default function PracticeSessions() {
                                             Photo coming soon
                                         </p>
                                     </div>
-                                </div>
+                                </motion.div>
 
                                 <div className="absolute left-5 top-5">
                                     <span className="rounded-full bg-black/70 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur">
                                         {item.type}
                                     </span>
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* Information */}
                             <div className="pt-5">
@@ -75,7 +152,7 @@ export default function PracticeSessions() {
                                 </p>
                             </div>
 
-                        </article>
+                        </motion.article>
                     ))}
                 </div>
 

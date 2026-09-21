@@ -15,7 +15,7 @@ export default function Navbar() {
 
                     {/* Logo */}
                     <Link
-                        href="/"
+                        href="/kirap-pairap"
                         className="text-xl font-black uppercase tracking-[0.15em] text-white"
                     >
                         Kirap Pairap
