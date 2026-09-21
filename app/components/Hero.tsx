@@ -23,6 +23,7 @@ export default function Hero() {
             </div>
 
             {/* Red atmosphere */}
+
             <div className="absolute left-[40%] top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-red-700/15 blur-[150px]" />
 
             {/* Main content */}
