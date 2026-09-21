@@ -1,24 +1,28 @@
-// import Image from "next/image";
 "use client";
 
 import { motion } from "motion/react";
 
-import { galleryItems } from "../data/gallery";
+import { practiceSessions } from "../data/practiceSessions";
 
 export default function PracticeSessions() {
     return (
         <section
             id="gallery"
-            className="bg-neutral-100 px-6 py-24 text-black md:py-32 lg:px-8"
+            className="bg-[#f3f0ea] px-6 py-24 text-black md:py-32 lg:px-8"
         >
             <div className="mx-auto max-w-7xl">
-
-                {/* Heading */}
+                {/* Header */}
                 <div className="grid gap-10 lg:grid-cols-2">
                     <div>
-                        <p className="mb-6 text-xs font-bold uppercase tracking-[0.35em] text-red-600">
-                            Practice Sessions
-                        </p>
+                        <motion.p
+                            initial={{ opacity: 0, y: 15 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="mb-8 text-xs font-bold uppercase tracking-[0.35em] text-red-600"
+                        >
+                            Practice Log
+                        </motion.p>
 
                         <h2 className="text-5xl font-black uppercase leading-[0.9] tracking-tight md:text-7xl">
                             <span className="block overflow-hidden">
@@ -58,104 +62,119 @@ export default function PracticeSessions() {
                         initial={{ opacity: 0, y: 25 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{
-                            duration: 0.7,
-                            delay: 0.25,
-                            ease: "easeOut",
-                        }}
+                        transition={{ duration: 0.7, delay: 0.25 }}
                         className="flex items-end"
                     >
                         <p className="max-w-xl text-lg leading-8 text-black/60">
-                            Every practice is part of the Kirap Pairap story. We are
-                            documenting the rehearsals, conversations and moments
-                            that take us from an idea to a performing band.
+                            Follow Kirap Pairap behind the scenes as we practise, learn,
+                            experiment and develop our sound together.
                         </p>
                     </motion.div>
                 </div>
 
-                {/* Gallery */}
-                <div className="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {galleryItems.map((item, index) => (
+                {/* Sessions */}
+                <div className="mt-20">
+                    {practiceSessions.map((session, index) => (
                         <motion.article
-                            key={item.id}
-                            initial={{
-                                opacity: 0,
-                                y: 40,
-                            }}
-                            whileInView={{
-                                opacity: 1,
-                                y: 0,
-                            }}
-                            viewport={{
-                                once: true,
-                                amount: 0.2,
-                            }}
+                            key={session.id}
+                            initial={{ opacity: 0, y: 35 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.15 }}
                             transition={{
                                 duration: 0.7,
-                                delay: index * 0.12,
+                                delay: index * 0.08,
                                 ease: [0.22, 1, 0.36, 1],
                             }}
-                            className="group"
+                            className="border-t border-black/20 py-12 md:py-16"
                         >
+                            {/* Session heading */}
+                            <div className="grid gap-8 lg:grid-cols-[1fr_2fr]">
+                                <div>
+                                    <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600">
+                                        Session {String(session.id).padStart(2, "0")}
+                                    </p>
 
-                            {/* Image */}
-                            <motion.div
-                                whileHover={{ scale: 0.985 }}
-                                transition={{
-                                    duration: 0.35,
-                                    ease: "easeOut",
-                                }}
-                                className="relative aspect-[4/5] overflow-hidden bg-neutral-300"
-                            >
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    whileInView={{ opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{
-                                        duration: 0.8,
-                                        delay: 0.35,
-                                    }}
-                                    className="absolute inset-0 flex items-center justify-center"
-                                >
-                                    <div className="text-center">
-                                        <p className="text-xs font-bold uppercase tracking-[0.3em] text-black/30">
-                                            Kirap Pairap
-                                        </p>
+                                    <p className="mt-4 text-sm font-semibold uppercase tracking-wider">
+                                        {session.date}
+                                    </p>
 
-                                        <p className="mt-2 text-sm text-black/40">
-                                            Photo coming soon
-                                        </p>
-                                    </div>
-                                </motion.div>
-
-                                <div className="absolute left-5 top-5">
-                                    <span className="rounded-full bg-black/70 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur">
-                                        {item.type}
-                                    </span>
+                                    <p className="mt-1 text-sm text-black/50">
+                                        {session.location}
+                                    </p>
                                 </div>
-                            </motion.div>
 
-                            {/* Information */}
-                            <div className="pt-5">
-                                <div className="flex items-center justify-between gap-4">
-                                    <h3 className="text-xl font-black uppercase">
-                                        {item.title}
+                                <div>
+                                    <h3 className="text-3xl font-black uppercase tracking-tight md:text-5xl">
+                                        {session.title}
                                     </h3>
 
-                                    <span className="text-xs font-semibold text-black/40">
-                                        {item.date}
-                                    </span>
+                                    <p className="mt-6 max-w-2xl text-base leading-7 text-black/60 md:text-lg md:leading-8">
+                                        {session.summary}
+                                    </p>
                                 </div>
-
-                                <p className="mt-3 leading-7 text-black/55">
-                                    {item.description}
-                                </p>
                             </div>
 
+                            {/* Details */}
+                            <div className="mt-12 grid gap-10 md:grid-cols-2">
+                                <div className="border-t border-black/15 pt-6">
+                                    <p className="text-xs font-bold uppercase tracking-[0.3em]">
+                                        What We Worked On
+                                    </p>
+
+                                    <ul className="mt-6 space-y-3">
+                                        {session.workedOn.map((item) => (
+                                            <li
+                                                key={item}
+                                                className="flex items-start gap-4 text-black/65"
+                                            >
+                                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-600" />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="border-t border-black/15 pt-6">
+                                    <p className="text-xs font-bold uppercase tracking-[0.3em]">
+                                        What We Learned
+                                    </p>
+
+                                    <p className="mt-6 max-w-xl text-lg leading-8 text-black/65">
+                                        {session.learned}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Media placeholders */}
+                            <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3">
+                                {[1, 2, 3].map((item) => (
+                                    <div
+                                        key={item}
+                                        className="flex aspect-[4/3] items-center justify-center bg-black/5"
+                                    >
+                                        <div className="text-center">
+                                            <p className="text-2xl font-black text-black/10">
+                                                0{item}
+                                            </p>
+
+                                            <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.25em] text-black/30">
+                                                Media Coming Soon
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </motion.article>
                     ))}
                 </div>
 
+                {/* Closing */}
+                <div className="border-t border-black/20 pt-10">
+                    <p className="max-w-3xl text-2xl font-black uppercase leading-tight md:text-4xl">
+                        Every rehearsal becomes part of{" "}
+                        <span className="text-red-600">our story.</span>
+                    </p>
+                </div>
             </div>
         </section>
     );
