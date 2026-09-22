@@ -72,7 +72,7 @@ export default function Navbar() {
                         </Link>
 
                         <Link
-                            href="/#support"
+                            href="/support"
                             className="rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-black"
                         >
                             Support Us
@@ -133,34 +133,38 @@ export default function Navbar() {
                             <Link
                                 href="#story"
                                 onClick={closeMenu}
-                                className="border-t border-white/15 py-5 text-4xl font-black uppercase tracking-tight transition hover:text-red-500"
+                                className="border-t border-white/15 py-3 text-2xl font-black uppercase tracking-tight transition hover:text-red-500"
                             >
                                 Our Story
                             </Link>
                             <Link
                                 href="/band/"
                                 onClick={closeMenu}
-                                className="..."
+                                className="border-t border-white/15 py-3 text-2xl font-black uppercase tracking-tight transition hover:text-red-500"
                             >
+
                                 The Band
                             </Link>
 
                             <Link
                                 href="/journey/"
                                 onClick={closeMenu}
-                                className="border-t border-white/15 py-5 text-4xl font-black uppercase tracking-tight transition hover:text-red-500"
+                                className="border-t border-white/15 py-3 text-2xl font-black uppercase tracking-tight transition hover:text-red-500"
                             >
                                 Journey
                             </Link>
 
-                            <Link href="/gallery/">
+                            <Link href="/gallery/"
+                                onClick={closeMenu}
+                                className="border-t border-white/15 py-3 text-2xl font-black uppercase tracking-tight transition hover:text-red-500"
+                            >
                                 Gallery
                             </Link>
 
                             <Link
-                                href="#support"
+                                href="/support"
                                 onClick={closeMenu}
-                                className="border-y border-white/15 py-5 text-4xl font-black uppercase tracking-tight text-red-500"
+                                className="border-t border-white/15 py-3 text-2xl font-black uppercase tracking-tight transition hover:text-red-500"
                             >
                                 Support Us
                             </Link>
