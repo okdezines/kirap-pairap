@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from 'react';
 import { motion } from "motion/react";
 import { fundraising } from "../data/fundraising";
 
 export default function SupportPageContent() {
+    const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
+    const [customAmount, setCustomAmount] = useState("");
+
     const progress = Math.min(
         (fundraising.raised / fundraising.goal) * 100,
         100
@@ -273,30 +277,86 @@ export default function SupportPageContent() {
                                 Choose an amount
                             </p>
 
-                            <div className="mt-6 grid grid-cols-2 gap-3">
-                                {["$20", "$50", "$100", "Other"].map((amount) => (
-                                    <button
-                                        key={amount}
-                                        type="button"
-                                        disabled
-                                        className="cursor-not-allowed border border-white/20 px-5 py-5 text-lg font-black text-white/40"
-                                    >
-                                        {amount}
-                                    </button>
-                                ))}
+                            <div className="mt-6 grid grid-cols-3 gap-3">
+                                {[20, 50, 100].map((amount) => {
+                                    const isSelected = selectedAmount === amount;
+
+                                    return (
+                                        <button
+                                            key={amount}
+                                            type="button"
+                                            onClick={() => {
+                                                setSelectedAmount(amount);
+                                                setCustomAmount("");
+                                            }}
+                                            className={`border px-5 py-5 text-lg font-black transition-all ${isSelected
+                                                ? "border-red-600 bg-red-600 text-white"
+                                                : "border-white/20 text-white hover:border-white/60"
+                                                }`}
+                                        >
+                                            ${amount}
+                                        </button>
+                                    );
+                                })}
                             </div>
 
+                            {/* Custom amount */}
+                            <div className="mt-3">
+                                <label
+                                    htmlFor="customAmount"
+                                    className="sr-only"
+                                >
+                                    Enter another contribution amount
+                                </label>
+
+                                <div className="flex items-center border border-white/20 focus-within:border-red-600">
+                                    <span className="pl-5 text-lg font-black text-white/50">
+                                        NZ$
+                                    </span>
+
+                                    <input
+                                        id="customAmount"
+                                        type="number"
+                                        min="1"
+                                        step="1"
+                                        inputMode="numeric"
+                                        placeholder="Other amount"
+                                        value={customAmount}
+                                        onChange={(event) => {
+                                            const value = event.target.value;
+
+                                            setCustomAmount(value);
+
+                                            const numericValue = Number(value);
+
+                                            if (numericValue > 0) {
+                                                setSelectedAmount(numericValue);
+                                            } else {
+                                                setSelectedAmount(null);
+                                            }
+                                        }}
+                                        className="w-full bg-transparent px-3 py-5 text-lg font-black text-white outline-none placeholder:text-white/30"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Future checkout button */}
                             <button
                                 type="button"
-                                disabled
-                                className="mt-4 w-full cursor-not-allowed bg-white/10 px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] text-white/40"
+                                disabled={!selectedAmount}
+                                className={`mt-4 w-full px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] transition-all ${selectedAmount
+                                    ? "bg-red-600 text-white hover:bg-red-500"
+                                    : "cursor-not-allowed bg-white/10 text-white/30"
+                                    }`}
                             >
-                                Contribution System Coming Soon
+                                {selectedAmount
+                                    ? `Contribute NZ$${selectedAmount}`
+                                    : "Choose an amount"}
                             </button>
 
                             <p className="mt-5 text-sm leading-6 text-white/40">
-                                Online contributions are not yet enabled. A secure payment
-                                system will be added in a future stage of the project.
+                                Online payments are not yet enabled. Selecting an amount currently
+                                demonstrates the contribution interface only.
                             </p>
                         </div>
                     </div>
