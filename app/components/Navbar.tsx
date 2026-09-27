@@ -67,7 +67,10 @@ export default function Navbar() {
                             Journey
                         </Link>
 
-                        <Link href="/gallery/">
+                        <Link
+                            href="/gallery/"
+                            className="text-sm text-white/70 transition-colors hover:text-white"
+                        >
                             Gallery
                         </Link>
 

@@ -1,5 +1,5 @@
 export const fundraising = {
-  raised: 1000,
+  raised: 300,
   goal: 10000,
   currency: "NZD",
 

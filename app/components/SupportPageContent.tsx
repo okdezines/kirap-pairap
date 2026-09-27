@@ -8,6 +8,44 @@ export default function SupportPageContent() {
     const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
     const [customAmount, setCustomAmount] = useState("");
 
+    // const STRIPE_TEST_PAYMENT_LINK =
+    //     "https://buy.stripe.com/test_bJeeVf5YUaH3a2502D0oM00";
+
+    const handleContribution = async () => {
+        if (!selectedAmount || selectedAmount <= 0) {
+            return;
+        }
+
+        try {
+            const response = await fetch(
+                "https://kirap-pairap-api-fyb3a0bhhsesf6gb.newzealandnorth-01.azurewebsites.net/api/createCheckoutSession",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        amount: selectedAmount,
+                    }),
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Unable to create checkout session.");
+            }
+
+            const data = await response.json();
+
+            if (!data.checkoutUrl) {
+                throw new Error("Stripe checkout URL was not returned.");
+            }
+
+            window.location.href = data.checkoutUrl;
+        } catch (error) {
+            console.error("Contribution checkout failed:", error);
+        }
+    };
+
     const progress = Math.min(
         (fundraising.raised / fundraising.goal) * 100,
         100
@@ -340,11 +378,12 @@ export default function SupportPageContent() {
                                 </div>
                             </div>
 
-                            {/* Future checkout button */}
+                            {/* Checkout button */}
                             <button
                                 type="button"
-                                disabled={!selectedAmount}
-                                className={`mt-4 w-full px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] transition-all ${selectedAmount
+                                onClick={handleContribution}
+                                disabled={!selectedAmount || selectedAmount <= 0}
+                                className={`mt-4 w-full px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] transition-all ${selectedAmount && selectedAmount > 0
                                     ? "bg-red-600 text-white hover:bg-red-500"
                                     : "cursor-not-allowed bg-white/10 text-white/30"
                                     }`}
@@ -355,8 +394,8 @@ export default function SupportPageContent() {
                             </button>
 
                             <p className="mt-5 text-sm leading-6 text-white/40">
-                                Online payments are not yet enabled. Selecting an amount currently
-                                demonstrates the contribution interface only.
+                                Stripe sandbox payments are enabled for testing. No real money will
+                                be charged.
                             </p>
                         </div>
                     </div>

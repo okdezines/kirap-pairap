@@ -1,18 +1,46 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { fundraising } from "../data/fundraising";
 
 
 export default function Fundraising() {
+    const [raised, setRaised] = useState(fundraising.raised);
+    const [goal, setGoal] = useState(fundraising.goal);
+    const [currency, setCurrency] = useState(fundraising.currency);
+
+    useEffect(() => {
+        async function loadFundraising() {
+            try {
+                const response = await fetch(
+                    "https://kirap-pairap-api-fyb3a0bhhsesf6gb.newzealandnorth-01.azurewebsites.net/api/fundraising"
+                );
+
+                if (!response.ok) {
+                    throw new Error("Unable to load fundraising data.");
+                }
+
+                const data = await response.json();
+
+                setRaised(data.publicTotalRaised);
+                setGoal(data.goal);
+                setCurrency(data.currency);
+            } catch (error) {
+                console.error("Failed to load fundraising data:", error);
+            }
+        }
+
+        loadFundraising();
+    }, []);
     const progress = Math.min(
-        (fundraising.raised / fundraising.goal) * 100,
+        (raised / goal) * 100,
         100
     );
 
     const money = new Intl.NumberFormat("en-NZ", {
         style: "currency",
-        currency: fundraising.currency,
+        currency: currency,
         maximumFractionDigits: 0,
     });
 
@@ -105,7 +133,7 @@ export default function Fundraising() {
                             </p>
 
                             <p className="mt-3 text-6xl font-black tracking-tight md:text-8xl">
-                                {money.format(fundraising.raised)}
+                                {money.format(raised)}
                             </p>
                         </motion.div>
 
@@ -124,7 +152,7 @@ export default function Fundraising() {
                             </p>
 
                             <p className="mt-2 text-3xl font-bold">
-                                {money.format(fundraising.goal)}
+                                {money.format(goal)}
                             </p>
                         </motion.div>
 
