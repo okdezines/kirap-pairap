@@ -1,12 +1,25 @@
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "motion/react";
 import { fundraising } from "../data/fundraising";
 
 export default function SupportPageContent() {
     const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
     const [customAmount, setCustomAmount] = useState("");
+
+
+    const searchParams = useSearchParams();
+    const payment = searchParams.get("payment");
+
+    const paymentStatus =
+        payment === "success" || payment === "cancelled"
+            ? payment
+            : null;
+    // State  read Stripe's return URL
+
+
 
     // const STRIPE_TEST_PAYMENT_LINK =
     //     "https://buy.stripe.com/test_bJeeVf5YUaH3a2502D0oM00";
@@ -311,6 +324,39 @@ export default function SupportPageContent() {
 
                         {/* Contribution UI */}
                         <div className="border border-white/15 p-6 md:p-8">
+                            {paymentStatus === "success" && (
+                                <div className="mb-8 border border-green-500/30 bg-green-500/10 p-6">
+                                    <p className="text-xs font-bold uppercase tracking-[0.3em] text-green-400">
+                                        Thank You
+                                    </p>
+
+                                    <h3 className="mt-3 text-2xl font-black uppercase">
+                                        Your support means a lot.
+                                    </h3>
+
+                                    <p className="mt-3 text-sm leading-6 text-white/60">
+                                        Thank you for supporting Kirap Pairap. Your contribution helps us
+                                        build our band, develop our music and preserve our Papua New Guinean
+                                        cultural heritage.
+                                    </p>
+                                </div>
+                            )}
+                            {paymentStatus === "cancelled" && (
+                                <div className="mb-8 border border-white/20 bg-white/5 p-6">
+                                    <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/50">
+                                        Contribution Cancelled
+                                    </p>
+
+                                    <h3 className="mt-3 text-2xl font-black uppercase">
+                                        No payment was made.
+                                    </h3>
+
+                                    <p className="mt-3 text-sm leading-6 text-white/60">
+                                        Your contribution was not completed. You can choose an amount
+                                        below and try again whenever you&apos;re ready.
+                                    </p>
+                                </div>
+                            )}
                             <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/50">
                                 Choose an amount
                             </p>

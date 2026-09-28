@@ -1,5 +1,10 @@
-
+import { Suspense } from "react";
 import SupportPageContent from "../components/SupportPageContent";
+
 export default function SupportPage() {
-    return <SupportPageContent />;
+    return (
+        <Suspense fallback={null}>
+            <SupportPageContent />
+        </Suspense>
+    );
 }
