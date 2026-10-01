@@ -97,7 +97,7 @@ export default function Hero() {
                         }}
                         className="mt-8 max-w-xl text-lg leading-relaxed text-white/70 md:text-xl"
                     >
-                        Six people. One community. Building a band to ignite,
+                        One community. Building a band to ignite,
                         preserve and pass on Papua New Guinea&apos;s musical and
                         cultural heritage.
                     </motion.p>
