@@ -1,48 +1,109 @@
-// import Image from "next/image";
 "use client";
 
 import { motion } from "motion/react";
 
 export default function Hero() {
     return (
-        <section className="relative flex min-h-screen items-center overflow-hidden bg-black text-white">
+        <section className="relative flex min-h-screen items-center overflow-hidden bg-[#F2D94E] text-black">
 
-            {/* Hero photograph */}
+            {/* Top black accent */}
             <motion.div
-                initial={{ clipPath: "inset(0 0 0 100%)" }}
-                animate={{ clipPath: "inset(0 0 0 0%)" }}
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
                 transition={{
-                    duration: 1.2,
+                    duration: 1,
                     delay: 0.1,
                     ease: [0.22, 1, 0.36, 1],
                 }}
-                className="absolute inset-0 lg:left-[48%]"
+                className="absolute left-0 top-0 z-30 h-3 w-full origin-left bg-black"
+            />
+
+            {/* Right red accent - desktop */}
+            <motion.div
+                initial={{ height: 0 }}
+                animate={{ height: "100%" }}
+                transition={{
+                    duration: 1,
+                    delay: 0.2,
+                    ease: [0.22, 1, 0.36, 1],
+                }}
+                className="absolute right-0 top-0 z-30 hidden w-3 bg-red-600 lg:block"
+            />
+
+            {/* =====================================================
+          MOBILE BACKGROUND ARTWORK
+          Hidden on desktop
+      ====================================================== */}
+            <motion.div
+                initial={{ opacity: 0, scale: 1.08 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                    duration: 1.2,
+                    delay: 0.15,
+                    ease: [0.22, 1, 0.36, 1],
+                }}
+                className="absolute inset-0 z-0 lg:hidden"
             >
                 <img
-                    src="/kirap-pairap/images/hero/kirap-pairap.jpg"
-                    alt="Kirap Pairap community musicians performing together"
-                    className="h-full w-full object-cover object-center lg:object-[center_35%]"
+                    src="/kirap-pairap/images/hero/kirap-pairap-retro-art.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="h-full w-full scale-[1.05] object-cover object-center"
                 />
 
-                {/* Desktop gradient */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-transparent" />
+                {/* Dark overlay makes white text readable */}
+                <div className="absolute inset-0 bg-black/55" />
 
-                {/* Mobile darkening */}
-                <div className="absolute inset-0 bg-black/30 lg:bg-transparent" />
+                {/* Slight yellow tint keeps the retro identity */}
+                <div className="absolute inset-0 bg-[#F2D94E]/10" />
 
-                {/* Bottom fade */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20" />
+                {/* Extra lower gradient for buttons/text */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/45" />
             </motion.div>
 
+            {/* =====================================================
+          DESKTOP ARTWORK
+          Pulled closer toward the text
+      ====================================================== */}
+            <motion.div
+                initial={{ opacity: 0, x: 80, rotate: 3 }}
+                animate={{ opacity: 1, x: 0, rotate: 0 }}
+                transition={{
+                    duration: 1,
+                    delay: 0.55,
+                    ease: [0.22, 1, 0.36, 1],
+                }}
+                className="
+  pointer-events-none
+  absolute
+  right-[1%]
+  top-1/2
+  z-[2]
+  hidden
+  w-[61%]
+  max-w-[1000px]
+  -translate-y-1/2
+  lg:block
+  xl:right-[2%]
+"
+            >
+                <img
+                    src="/kirap-pairap/images/hero/kirap-pairap-retro-art.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="h-auto w-full object-contain"
+                />
+            </motion.div>
 
-            {/* Red atmosphere */}
+            {/* =====================================================
+          MAIN CONTENT
+      ====================================================== */}
+            <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 lg:px-8">
 
-            <div className="absolute left-[40%] top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-red-700/15 blur-[150px]" />
+                {/* Limit width on desktop so text and artwork share space */}
+                <div className="max-w-xl lg:max-w-[48%]">
 
-            {/* Main content */}
-            <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
-                <div className="max-w-5xl">
-
+                    {/* Location */}
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -51,12 +112,37 @@ export default function Hero() {
                             delay: 0.2,
                             ease: "easeOut",
                         }}
-                        className="mb-6 text-xs font-bold uppercase tracking-[0.35em] text-red-400 md:text-sm"
+                        className="
+              mb-6
+              text-xs
+              font-black
+              uppercase
+              tracking-[0.3em]
+              text-white
+              lg:text-red-700
+              md:text-sm
+            "
                     >
                         Papua New Guinea • Wellington • New Zealand
                     </motion.p>
 
-                    <h1 className="overflow-hidden text-6xl font-black uppercase leading-[0.85] tracking-tight sm:text-7xl md:text-8xl lg:text-[9rem]">
+                    {/* Heading */}
+                    <h1
+                        className="
+              overflow-hidden
+              text-6xl
+              font-black
+              uppercase
+              leading-[0.82]
+              tracking-tight
+              text-white
+              sm:text-7xl
+              md:text-8xl
+              lg:text-[7rem]
+              lg:text-black
+              xl:text-[8rem]
+            "
+                    >
                         <span className="block overflow-hidden">
                             <motion.span
                                 initial={{ y: "110%" }}
@@ -83,10 +169,31 @@ export default function Hero() {
                                 }}
                                 className="block"
                             >
-                                Pairap.
+                                Pairap<span className="text-red-600">.</span>
                             </motion.span>
                         </span>
                     </h1>
+
+                    {/* Divider */}
+                    <motion.div
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{
+                            duration: 0.8,
+                            delay: 0.6,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="
+              mt-8
+              h-[3px]
+              w-20
+              origin-left
+              bg-white
+              lg:bg-black
+            "
+                    />
+
+                    {/* Description */}
                     <motion.p
                         initial={{ opacity: 0, y: 25 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -95,45 +202,102 @@ export default function Hero() {
                             delay: 0.65,
                             ease: "easeOut",
                         }}
-                        className="mt-8 max-w-xl text-lg leading-relaxed text-white/70 md:text-xl"
+                        className="
+              mt-8
+              max-w-xl
+              text-lg
+              font-medium
+              leading-relaxed
+              text-white/90
+              md:text-xl
+              lg:text-black/75
+            "
                     >
-                        One community. Building a band to ignite,
-                        preserve and pass on Papua New Guinea&apos;s musical and
-                        cultural heritage.
+                        One community. Building a band to ignite, preserve and pass on
+                        Papua New Guinea&apos;s musical and cultural heritage.
                     </motion.p>
 
+                    {/* Buttons */}
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{
                             duration: 0.8,
                             delay: 0.8,
                             ease: "easeOut",
                         }}
-                        className="mt-10 flex flex-wrap gap-4"
+                        className="mt-10"
                     >
-
-                        <a
-                            href="/story/"
-                            className="rounded-full bg-white px-7 py-3 text-sm font-bold text-black transition hover:bg-red-500 hover:text-white"
-                        >
-                            Our Story
-                        </a>
-
                         <a
                             href="#support"
-                            className="rounded-full border border-white/30 bg-black/20 px-7 py-3 text-sm font-bold text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
+                            className="
+            group
+            inline-flex
+            items-center
+            gap-5
+            rounded-full
+            bg-black
+            px-8
+            py-5
+            text-base
+            font-black
+            uppercase
+            tracking-[0.12em]
+            text-white
+            transition-all
+            duration-300
+            hover:bg-red-600
+            hover:px-10
+            sm:px-10
+            sm:py-6
+            sm:text-lg
+        "
                         >
-                            Support the Band
-                        </a>
+                            Help Fund the Band
 
+                            <span
+                                className="
+        flex
+        h-11
+        w-11
+        shrink-0
+        items-center
+        justify-center
+        rounded-full
+        bg-[#F2D94E]
+        text-2xl
+        font-bold
+        leading-none
+        text-black
+        transition-transform
+        duration-300
+        group-hover:translate-x-1
+        sm:h-10
+        sm:w-10
+        sm:text-xl
+    "
+                            >
+                                →
+                            </span>
+                        </a>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Bottom message */}
-            <div className="absolute bottom-8 right-6 z-10 hidden text-right md:block lg:right-8">
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/50">
+            {/* =====================================================
+          BOTTOM RIGHT MESSAGE
+      ====================================================== */}
+            <div className="absolute bottom-8 right-6 z-20 hidden text-right md:block lg:right-8">
+                <p
+                    className="
+            text-xs
+            font-black
+            uppercase
+            tracking-[0.3em]
+            text-white/70
+            lg:text-black/60
+          "
+                >
                     Our Music
                     <br />
                     Our Culture
@@ -142,8 +306,26 @@ export default function Hero() {
                 </p>
             </div>
 
-            {/* Vertical accent */}
-            <div className="absolute bottom-0 left-6 z-10 h-16 w-[2px] bg-red-500 md:left-8" />
+            {/* =====================================================
+          BOTTOM LEFT IDENTITY
+      ====================================================== */}
+            <div className="absolute bottom-8 left-6 z-20 md:left-8">
+                <div className="mb-3 h-10 w-[3px] bg-red-600" />
+
+                <p
+                    className="
+            text-[9px]
+            font-black
+            uppercase
+            tracking-[0.25em]
+            text-white/70
+            sm:text-[10px]
+            lg:text-black/50
+          "
+                >
+                    Ignite • Preserve • Pass On
+                </p>
+            </div>
         </section>
     );
 }
