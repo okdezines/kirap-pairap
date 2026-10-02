@@ -285,9 +285,15 @@ export default function SupportPageContent() {
                                     />
                                 </div>
 
-                                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.25em] text-white/30">
-                                    {Math.round(progress)}% funded
-                                </p>
+                                {/* <div className="mt-3 flex items-center justify-between gap-4">
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">
+                                        {Math.round(progress)}% funded
+                                    </p>
+
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">
+                                        {formatMoney(fundraising.goal - fundraising.raised)} to go
+                                    </p>
+                                </div> */}
                             </div>
 
                             <div className="sm:text-right">
@@ -299,74 +305,13 @@ export default function SupportPageContent() {
                                     {formatMoney(fundraising.goal)}
                                 </p>
                             </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-            {/* FUNDRAISING PROGRESS */}
-            <section className="bg-red-600 px-6 py-24 text-white md:py-32 lg:px-8">
-                <div className="mx-auto max-w-7xl">
-
-                    <div className="grid gap-14 lg:grid-cols-2">
-                        <div>
-                            <p className="text-xs font-bold uppercase tracking-[0.35em] text-white/70">
-                                Our Fundraising Goal
-                            </p>
-
-                            <h2 className="mt-6 text-5xl font-black uppercase leading-[0.9] tracking-tight md:text-7xl">
-                                Building something
-                                <span className="block text-black">together.</span>
-                            </h2>
-                        </div>
-
-                        <div className="flex flex-col justify-end">
-                            <div className="flex items-end justify-between gap-6">
-                                <div>
-                                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/70">
-                                        Raised
-                                    </p>
-
-                                    <p className="mt-2 text-4xl font-black md:text-6xl">
-                                        {formatMoney(fundraising.raised)}
-                                    </p>
-                                </div>
-
-                                <div className="text-right">
-                                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/70">
-                                        Goal
-                                    </p>
-
-                                    <p className="mt-2 text-2xl font-black md:text-4xl">
-                                        {formatMoney(fundraising.goal)}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Progress bar */}
-                            <div className="mt-8 h-3 overflow-hidden rounded-full bg-black/20">
-                                <motion.div
-                                    initial={{ width: "0%" }}
-                                    whileInView={{ width: `${progress}%` }}
-                                    viewport={{ once: true }}
-                                    transition={{
-                                        duration: 1.4,
-                                        delay: 0.2,
-                                        ease: [0.22, 1, 0.36, 1],
-                                    }}
-                                    className="h-full rounded-full bg-white"
-                                />
-                            </div>
-
                             <div className="mt-4 flex justify-between text-sm font-bold uppercase tracking-[0.2em]">
                                 <span>{Math.round(progress)}% funded</span>
                                 <span>
                                     {formatMoney(fundraising.goal - fundraising.raised)} to go
                                 </span>
                             </div>
+
                         </div>
                     </div>
 
@@ -456,156 +401,6 @@ export default function SupportPageContent() {
                                 It also helps us build something younger generations can see,
                                 hear and participate in — keeping Papua New Guinean music and
                                 cultural identity visible here in Wellington.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-            {/* FUTURE CONTRIBUTION AREA */}
-            <section className="bg-black px-6 py-24 text-white md:py-32 lg:px-8">
-                <div className="mx-auto max-w-7xl">
-
-                    <p className="text-xs font-bold uppercase tracking-[0.35em] text-red-500">
-                        Make A Contribution
-                    </p>
-
-                    <div className="mt-8 grid gap-14 lg:grid-cols-2">
-                        <div>
-                            <h2 className="text-5xl font-black uppercase leading-[0.9] tracking-tight md:text-7xl">
-                                Be part of
-                                <span className="block text-red-600">the journey.</span>
-                            </h2>
-
-                            <p className="mt-8 max-w-xl text-lg leading-8 text-white/60">
-                                Every contribution, large or small, can help Kirap Pairap move
-                                closer to the instruments and equipment needed to build the
-                                band.
-                            </p>
-                        </div>
-
-                        {/* Contribution UI */}
-                        <div className="border border-white/15 p-6 md:p-8">
-                            {paymentStatus === "success" && (
-                                <div className="mb-8 border border-green-500/30 bg-green-500/10 p-6">
-                                    <p className="text-xs font-bold uppercase tracking-[0.3em] text-green-400">
-                                        Thank You
-                                    </p>
-
-                                    <h3 className="mt-3 text-2xl font-black uppercase">
-                                        Your support means a lot.
-                                    </h3>
-
-                                    <p className="mt-3 text-sm leading-6 text-white/60">
-                                        Thank you for supporting Kirap Pairap. Your contribution helps us
-                                        build our band, develop our music and preserve our Papua New Guinean
-                                        cultural heritage.
-                                    </p>
-                                </div>
-                            )}
-                            {paymentStatus === "cancelled" && (
-                                <div className="mb-8 border border-white/20 bg-white/5 p-6">
-                                    <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/50">
-                                        Contribution Cancelled
-                                    </p>
-
-                                    <h3 className="mt-3 text-2xl font-black uppercase">
-                                        No payment was made.
-                                    </h3>
-
-                                    <p className="mt-3 text-sm leading-6 text-white/60">
-                                        Your contribution was not completed. You can choose an amount
-                                        below and try again whenever you&apos;re ready.
-                                    </p>
-                                </div>
-                            )}
-                            <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/50">
-                                Choose an amount
-                            </p>
-
-                            <div className="mt-6 grid grid-cols-3 gap-3">
-                                {[20, 50, 100].map((amount) => {
-                                    const isSelected = selectedAmount === amount;
-
-                                    return (
-                                        <button
-                                            key={amount}
-                                            type="button"
-                                            onClick={() => {
-                                                setSelectedAmount(amount);
-                                                setCustomAmount("");
-                                            }}
-                                            className={`border px-5 py-5 text-lg font-black transition-all ${isSelected
-                                                ? "border-red-600 bg-red-600 text-white"
-                                                : "border-white/20 text-white hover:border-white/60"
-                                                }`}
-                                        >
-                                            ${amount}
-                                        </button>
-                                    );
-                                })}
-                            </div>
-
-                            {/* Custom amount */}
-                            <div className="mt-3">
-                                <label
-                                    htmlFor="customAmount"
-                                    className="sr-only"
-                                >
-                                    Enter another contribution amount
-                                </label>
-
-                                <div className="flex items-center border border-white/20 focus-within:border-red-600">
-                                    <span className="pl-5 text-lg font-black text-white/50">
-                                        NZ$
-                                    </span>
-
-                                    <input
-                                        id="customAmount"
-                                        type="number"
-                                        min="1"
-                                        step="1"
-                                        inputMode="numeric"
-                                        placeholder="Other amount"
-                                        value={customAmount}
-                                        onChange={(event) => {
-                                            const value = event.target.value;
-
-                                            setCustomAmount(value);
-
-                                            const numericValue = Number(value);
-
-                                            if (numericValue > 0) {
-                                                setSelectedAmount(numericValue);
-                                            } else {
-                                                setSelectedAmount(null);
-                                            }
-                                        }}
-                                        className="w-full bg-transparent px-3 py-5 text-lg font-black text-white outline-none placeholder:text-white/30"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Checkout button */}
-                            <button
-                                type="button"
-                                onClick={handleContribution}
-                                disabled={!selectedAmount || selectedAmount <= 0}
-                                className={`mt-4 w-full px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] transition-all ${selectedAmount && selectedAmount > 0
-                                    ? "bg-red-600 text-white hover:bg-red-500"
-                                    : "cursor-not-allowed bg-white/10 text-white/30"
-                                    }`}
-                            >
-                                {selectedAmount
-                                    ? `Contribute NZ$${selectedAmount}`
-                                    : "Choose an amount"}
-                            </button>
-
-                            <p className="mt-5 text-sm leading-6 text-white/40">
-                                Stripe sandbox payments are enabled for testing. No real money will
-                                be charged.
                             </p>
                         </div>
                     </div>
