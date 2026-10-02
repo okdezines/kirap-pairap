@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 
+
 export default function Hero() {
     return (
         <section className="relative flex min-h-screen items-center overflow-hidden bg-[#F2D94E] text-black">
@@ -222,64 +223,36 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
-                            duration: 0.8,
+                            duration: 0.7,
                             delay: 0.8,
                             ease: "easeOut",
                         }}
-                        className="mt-10"
+                        className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
                     >
+                        {/* Secondary CTA */}
                         <a
-                            href="#support"
-                            className="
-            group
-            inline-flex
-            items-center
-            gap-5
-            rounded-full
-            bg-black
-            px-8
-            py-5
-            text-base
-            font-black
-            uppercase
-            tracking-[0.12em]
-            text-white
-            transition-all
-            duration-300
-            hover:bg-red-600
-            hover:px-10
-            sm:px-10
-            sm:py-6
-            sm:text-lg
-        "
+                            href="/kirap-pairap/story/"
+                            className="group flex w-full items-center justify-between rounded-full bg-red-600 px-7 py-5 text-sm font-black uppercase tracking-[0.18em] text-white transition hover:bg-black sm:w-auto sm:min-w-[310px]"
                         >
-                            Help Fund the Band
+                            <span>Our Story</span>
 
-                            <span
-                                className="
-        flex
-        h-11
-        w-11
-        shrink-0
-        items-center
-        justify-center
-        rounded-full
-        bg-[#F2D94E]
-        text-2xl
-        font-bold
-        leading-none
-        text-black
-        transition-transform
-        duration-300
-        group-hover:translate-x-1
-        sm:h-10
-        sm:w-10
-        sm:text-xl
-    "
-                            >
+                            <span className="ml-5 transition-transform duration-300 group-hover:translate-x-1">
                                 →
                             </span>
                         </a>
+                        {/* Primary CTA */}
+                        <a
+                            href="/kirap-pairap/support/"
+                            className="group flex w-full items-center justify-between rounded-full bg-black px-7 py-5 text-sm font-black uppercase tracking-[0.18em] text-white transition hover:bg-red-600 sm:w-auto sm:min-w-[310px]"
+                        >
+                            <span>Help Fund the Band</span>
+
+                            <span className="ml-6 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F2D94E] text-lg text-black transition-transform duration-300 group-hover:translate-x-1">
+                                →
+                            </span>
+                        </a>
+
+
                     </motion.div>
                 </div>
             </div>
