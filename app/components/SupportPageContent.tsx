@@ -9,7 +9,16 @@ export default function SupportPageContent() {
     const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
     const [customAmount, setCustomAmount] = useState("");
 
-
+    /*
+     * Read Stripe's return URL.
+     *
+     * IMPORTANT:
+     * This query parameter is only used to control the user experience.
+     * It is NOT trusted as proof that a payment was successful.
+     *
+     * Stripe webhook verification in the Azure backend remains the
+     * authoritative source for recording contributions.
+     */
     const searchParams = useSearchParams();
     const payment = searchParams.get("payment");
 
@@ -17,13 +26,13 @@ export default function SupportPageContent() {
         payment === "success" || payment === "cancelled"
             ? payment
             : null;
-    // State  read Stripe's return URL
 
-
-
-    // const STRIPE_TEST_PAYMENT_LINK =
-    //     "https://buy.stripe.com/test_bJeeVf5YUaH3a2502D0oM00";
-
+    /*
+     * Create a Stripe Checkout Session through our Azure Functions API.
+     *
+     * The Stripe secret key remains securely stored in Azure.
+     * It is never exposed to this frontend.
+     */
     const handleContribution = async () => {
         if (!selectedAmount || selectedAmount <= 0) {
             return;
@@ -73,14 +82,10 @@ export default function SupportPageContent() {
 
     return (
         <main className="bg-black text-white">
-
-            {/* HERO */}
             {/* SUPPORT + CONTRIBUTION HERO */}
             <section className="min-h-screen px-6 pb-10 pt-24 md:pt-28 lg:px-8 lg:pb-12 lg:pt-28">
                 <div className="mx-auto flex max-w-7xl flex-col lg:min-h-[calc(100vh-7rem)]">
-
                     <div className="grid flex-1 items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
-
                         {/* LEFT — MESSAGE */}
                         <motion.div
                             initial={{ opacity: 0, y: 24 }}
@@ -93,12 +98,8 @@ export default function SupportPageContent() {
 
                             <h1 className="text-6xl font-black uppercase leading-[0.82] tracking-tight sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem]">
                                 Help Us
-                                <span className="block text-red-600">
-                                    Build The
-                                </span>
-                                <span className="block">
-                                    Sound.
-                                </span>
+                                <span className="block text-red-600">Build The</span>
+                                <span className="block">Sound.</span>
                             </h1>
 
                             <p className="mt-8 max-w-xl text-base leading-7 text-white/60 md:text-lg md:leading-8">
@@ -112,7 +113,6 @@ export default function SupportPageContent() {
                             </p>
                         </motion.div>
 
-
                         {/* RIGHT — CONTRIBUTION */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -120,7 +120,6 @@ export default function SupportPageContent() {
                             transition={{ duration: 0.8, delay: 0.15 }}
                             className="border-t border-white/20 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0"
                         >
-
                             <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/45">
                                 Make A Contribution
                             </p>
@@ -129,38 +128,76 @@ export default function SupportPageContent() {
                                 Choose your amount.
                             </h2>
 
-
-                            {/* Payment status */}
-
+                            {/* PAYMENT SUCCESS */}
                             {paymentStatus === "success" && (
-                                <div className="mt-8 border border-green-500/30 bg-green-500/10 p-5">
-                                    <p className="text-xs font-bold uppercase tracking-[0.3em] text-green-400">
-                                        Thank You
+                                <motion.div
+                                    initial={{ opacity: 0, y: 16 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6 }}
+                                    className="mt-8 border border-green-500/30 bg-green-500/10 p-6"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <span className="flex h-9 w-9 items-center justify-center rounded-full border border-green-400/40 bg-green-400/10 text-lg text-green-400">
+                                            ✓
+                                        </span>
+
+                                        <p className="text-xs font-bold uppercase tracking-[0.3em] text-green-400">
+                                            Thank You
+                                        </p>
+                                    </div>
+
+                                    <h3 className="mt-5 text-2xl font-black uppercase tracking-tight text-white">
+                                        Your support means a lot.
+                                    </h3>
+
+                                    <p className="mt-4 text-sm leading-6 text-white/65">
+                                        Your payment was submitted successfully. Stripe is securely
+                                        confirming your contribution.
                                     </p>
 
-                                    <p className="mt-3 text-sm leading-6 text-white/60">
-                                        Your contribution has been completed. Thank you for
-                                        supporting Kirap Pairap.
+                                    <p className="mt-4 text-sm leading-6 text-white/55">
+                                        Your support helps Kirap Pairap build our sound, strengthen
+                                        our community and keep Papua New Guinea&apos;s musical and
+                                        cultural heritage alive.
                                     </p>
-                                </div>
+
+                                    <div className="mt-6 border-t border-green-500/20 pt-5">
+                                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40">
+                                            Ignite • Preserve • Pass On
+                                        </p>
+                                    </div>
+                                </motion.div>
                             )}
 
+                            {/* PAYMENT CANCELLED */}
                             {paymentStatus === "cancelled" && (
-                                <div className="mt-8 border border-white/20 bg-white/5 p-5">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 16 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6 }}
+                                    className="mt-8 border border-white/20 bg-white/5 p-6"
+                                >
                                     <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/50">
-                                        Contribution Cancelled
+                                        No Worries
                                     </p>
 
-                                    <p className="mt-3 text-sm leading-6 text-white/60">
-                                        No payment was made. You can choose another amount
-                                        whenever you&apos;re ready.
+                                    <h3 className="mt-4 text-2xl font-black uppercase tracking-tight text-white">
+                                        Your contribution wasn&apos;t completed.
+                                    </h3>
+
+                                    <p className="mt-4 text-sm leading-6 text-white/60">
+                                        No contribution has been recorded from this checkout. You
+                                        can choose another amount and try again whenever
+                                        you&apos;re ready.
                                     </p>
-                                </div>
+
+                                    <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">
+                                        Thank you for considering supporting Kirap Pairap.
+                                    </p>
+                                </motion.div>
                             )}
 
-
-                            {/* Amount buttons */}
-
+                            {/* AMOUNT BUTTONS */}
                             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
                                 {[10, 20, 50, 100].map((amount) => {
                                     const isSelected = selectedAmount === amount;
@@ -174,8 +211,8 @@ export default function SupportPageContent() {
                                                 setCustomAmount("");
                                             }}
                                             className={`border px-4 py-6 text-xl font-black transition-all ${isSelected
-                                                ? "border-red-600 bg-red-600 text-white"
-                                                : "border-white/20 text-white hover:border-white/70"
+                                                    ? "border-red-600 bg-red-600 text-white"
+                                                    : "border-white/20 text-white hover:border-white/70"
                                                 }`}
                                         >
                                             ${amount}
@@ -184,14 +221,9 @@ export default function SupportPageContent() {
                                 })}
                             </div>
 
-
-                            {/* Custom amount */}
-
+                            {/* CUSTOM AMOUNT */}
                             <div className="mt-3">
-                                <label
-                                    htmlFor="heroCustomAmount"
-                                    className="sr-only"
-                                >
+                                <label htmlFor="heroCustomAmount" className="sr-only">
                                     Enter another contribution amount
                                 </label>
 
@@ -204,6 +236,7 @@ export default function SupportPageContent() {
                                         id="heroCustomAmount"
                                         type="number"
                                         min="1"
+                                        max="10000"
                                         step="1"
                                         inputMode="numeric"
                                         placeholder="Other amount"
@@ -226,16 +259,14 @@ export default function SupportPageContent() {
                                 </div>
                             </div>
 
-
-                            {/* Checkout */}
-
+                            {/* CHECKOUT */}
                             <button
                                 type="button"
                                 onClick={handleContribution}
                                 disabled={!selectedAmount || selectedAmount <= 0}
                                 className={`mt-4 w-full px-6 py-6 text-sm font-bold uppercase tracking-[0.2em] transition-all ${selectedAmount && selectedAmount > 0
-                                    ? "bg-red-600 text-white hover:bg-red-500"
-                                    : "cursor-not-allowed bg-white/10 text-white/30"
+                                        ? "bg-red-600 text-white hover:bg-red-500"
+                                        : "cursor-not-allowed bg-white/10 text-white/30"
                                     }`}
                             >
                                 {selectedAmount
@@ -247,20 +278,16 @@ export default function SupportPageContent() {
                                 <span className="h-2 w-2 rounded-full bg-red-500" />
 
                                 <p className="text-xs leading-5 text-white/40">
-                                    Stripe sandbox payments are enabled for testing.
-                                    No real money will be charged.
+                                    Stripe sandbox payments are enabled for testing. No real
+                                    money will be charged.
                                 </p>
                             </div>
-
                         </motion.div>
                     </div>
 
-
                     {/* HERO FUNDRAISING STATUS */}
-
                     <div className="mt-16 border-t border-white/15 pt-6 lg:mt-8">
                         <div className="grid gap-6 sm:grid-cols-[auto_1fr_auto] sm:items-end">
-
                             <div>
                                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/35">
                                     Raised
@@ -284,16 +311,6 @@ export default function SupportPageContent() {
                                         className="h-full bg-red-600"
                                     />
                                 </div>
-
-                                {/* <div className="mt-3 flex items-center justify-between gap-4">
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">
-                                        {Math.round(progress)}% funded
-                                    </p>
-
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">
-                                        {formatMoney(fundraising.goal - fundraising.raised)} to go
-                                    </p>
-                                </div> */}
                             </div>
 
                             <div className="sm:text-right">
@@ -305,24 +322,25 @@ export default function SupportPageContent() {
                                     {formatMoney(fundraising.goal)}
                                 </p>
                             </div>
+
                             <div className="mt-4 flex justify-between text-sm font-bold uppercase tracking-[0.2em]">
                                 <span>{Math.round(progress)}% funded</span>
+
                                 <span>
-                                    {formatMoney(fundraising.goal - fundraising.raised)} to go
+                                    {formatMoney(
+                                        fundraising.goal - fundraising.raised
+                                    )}{" "}
+                                    to go
                                 </span>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </section>
-
 
             {/* WHAT THE SUPPORT BUILDS */}
             <section className="bg-[#f3f0ea] px-6 py-24 text-black md:py-32 lg:px-8">
                 <div className="mx-auto max-w-7xl">
-
                     <div className="grid gap-10 lg:grid-cols-2">
                         <div>
                             <p className="text-xs font-bold uppercase tracking-[0.35em] text-red-600">
@@ -344,7 +362,7 @@ export default function SupportPageContent() {
                         </div>
                     </div>
 
-                    {/* Equipment */}
+                    {/* EQUIPMENT */}
                     <div className="mt-20">
                         {fundraising.equipment.map((item, index) => (
                             <motion.div
@@ -372,15 +390,12 @@ export default function SupportPageContent() {
                             </motion.div>
                         ))}
                     </div>
-
                 </div>
             </section>
-
 
             {/* WHY SUPPORT MATTERS */}
             <section className="bg-white px-6 py-24 text-black md:py-32 lg:px-8">
                 <div className="mx-auto max-w-7xl">
-
                     <p className="text-xs font-bold uppercase tracking-[0.35em] text-red-600">
                         Why It Matters
                     </p>
@@ -404,10 +419,8 @@ export default function SupportPageContent() {
                             </p>
                         </div>
                     </div>
-
                 </div>
             </section>
-
         </main>
     );
 }
