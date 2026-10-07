@@ -30,7 +30,7 @@ export default function BandPageContent() {
                 }}
                 className="block"
               >
-                Six People.
+                One Community.
               </motion.span>
             </span>
 

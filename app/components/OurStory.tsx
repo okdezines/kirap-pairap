@@ -193,7 +193,7 @@ export default function OurStory() {
                     className="mt-24 border-t border-black/15 pt-10 md:mt-32"
                 >
                     <p className="max-w-5xl text-3xl font-black uppercase leading-tight tracking-tight md:text-5xl">
-                        Our music carries where we come from.
+                        Our music carries our culture.
                         <span className="text-red-600">
                             {" "}Our community carries it forward.
                         </span>

@@ -22,7 +22,7 @@ export default function OurPurpose() {
 
                     <div className="flex flex-col justify-end">
                         <p className="max-w-xl text-lg leading-8 text-black/65 md:text-xl">
-                            Kirap Pairap is a six-member Papua New Guinean music group
+                            Kirap Pairap is made up of the members of the Papua New Guinean music group
                             based in Wellington, New Zealand. We are coming together
                             through music to ignite interest in our culture, preserve
                             our heritage, and pass it on to future generations.
