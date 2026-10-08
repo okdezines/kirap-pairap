@@ -63,7 +63,8 @@ export default function Hero() {
                     className="max-w-3xl"
                 >
                     {/* Location */}
-                    <motion.p
+                    {/* Location + PNG Community Badge */}
+                    <motion.div
                         variants={{
                             hidden: {
                                 opacity: 0,
@@ -77,10 +78,38 @@ export default function Hero() {
                                 },
                             },
                         }}
-                        className="mb-8 text-xs font-bold uppercase tracking-[0.35em] text-red-500 md:text-sm"
+                        className="mb-8 flex items-center gap-4 md:gap-5"
                     >
-                        Papua New Guinea • Wellington • Community . Inc. New Zealand
-                    </motion.p>
+                        {/* WPNGC Badge */}
+                        <img
+                            src="/kirap-pairap/images/community/wpngc-logo.png"
+                            alt="Wellington Papua New Guinea Community Inc."
+                            className="
+                                    h-12 w-12
+                                    shrink-0
+                                    object-contain
+                                    md:h-16 md:w-16
+                                    lg:h-[72px] lg:w-[72px]
+                            "
+                        />
+
+
+                        {/* Location */}
+                        <p
+                            className="
+                                max-w-xl
+                                text-xs
+                                font-semibold
+                                uppercase
+                                leading-4
+                                tracking-[0.35em]
+                                text-[#FFF5EE]
+                                md:text-sm
+                            "
+                        >
+                            Papua New Guinea • Wellington • Community • Inc. New Zealand
+                        </p>
+                    </motion.div>
 
                     {/* Main title */}
                     <motion.h1
