@@ -79,7 +79,7 @@ export default function Hero() {
                         }}
                         className="mb-8 text-xs font-bold uppercase tracking-[0.35em] text-red-500 md:text-sm"
                     >
-                        Papua New Guinea • Wellington • New Zealand
+                        Papua New Guinea • Wellington • Community . Inc. New Zealand
                     </motion.p>
 
                     {/* Main title */}
@@ -138,7 +138,7 @@ export default function Hero() {
                                 },
                             },
                         }}
-                        className="max-w-xl text-base leading-7 text-white/80 md:text-lg"
+                        className="max-w-xl text-base font-semibold leading-7 text-[#FFF5EE] md:text-lg"
                     >
                         One community. Building a band to ignite, preserve and pass on
                         Papua New Guinea&apos;s musical and cultural heritage.
@@ -157,7 +157,7 @@ export default function Hero() {
                                 },
                             },
                         }}
-                        className="mt-6 text-xs font-bold uppercase tracking-[0.35em] text-white/50"
+                        className="mt-6 text-xs font-semibold uppercase tracking-[0.35em] text-[#FFF5EE]"
                     >
                         Ignite • Preserve • Pass On
                     </motion.p>
