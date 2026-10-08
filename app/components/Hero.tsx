@@ -32,7 +32,7 @@ export default function Hero() {
     absolute
     -inset-y-[8%]
     inset-x-0
-    bg-[url('/kirap-pairap/images/hero/kirap-pairap-retro-art.png')]
+    bg-[url('/kirap-pairap/images/hero/plume.png')]
     bg-cover
     bg-[center_55%]
     bg-no-repeat
@@ -99,9 +99,9 @@ export default function Hero() {
                             className="
                                 max-w-xl
                                 text-xs
-                                font-semibold
+                                // font-semibold
                                 uppercase
-                                leading-4
+                                leading-3.5
                                 tracking-[0.35em]
                                 text-[#FFF5EE]
                                 md:text-sm
