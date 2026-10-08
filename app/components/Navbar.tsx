@@ -37,12 +37,38 @@ export default function Navbar() {
                         }`}
                 >
 
-                    {/* Logo */}
+                    {/* Brand */}
                     <Link
                         href="/"
-                        className="text-xl font-black uppercase tracking-[0.15em] text-white"
+                        className="group flex items-center gap-3"
+                        aria-label="Kirap Pairap home"
                     >
-                        Kirap Pairap
+                        <img
+                            src="/kirap-pairap/images/logo/kirap-pairap-logo-02.png"
+                            alt=""
+                            className="
+            h-10
+            w-auto
+            object-contain
+            transition-transform
+            duration-300
+            group-hover:scale-105
+            md:h-12
+        "
+                        />
+
+                        <span
+                            className="
+            text-base
+            font-black
+            uppercase
+            tracking-[0.15em]
+            text-white
+            md:text-lg
+        "
+                        >
+                            {/* Kirap Pairap */}
+                        </span>
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -111,9 +137,18 @@ export default function Navbar() {
                         <Link
                             href="/"
                             onClick={closeMenu}
-                            className="text-xl font-black uppercase tracking-[0.15em]"
+                            className="flex items-center gap-3"
+                            aria-label="Kirap Pairap home"
                         >
-                            Kirap Pairap
+                            <img
+                                src="/kirap-pairap/images/logo/kirap-pairap-logo.png"
+                                alt=""
+                                className="h-10 w-auto object-contain"
+                            />
+
+                            <span className="text-lg font-black uppercase tracking-[0.15em] text-white">
+                                Kirap Pairap
+                            </span>
                         </Link>
 
                         <button

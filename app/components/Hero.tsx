@@ -81,7 +81,7 @@ export default function Hero() {
                         className="mb-8 flex items-center gap-4 md:gap-5"
                     >
                         {/* WPNGC Badge */}
-                        <img
+                        {/* <img
                             src="/kirap-pairap/images/community/wpngc-logo.png"
                             alt="Wellington Papua New Guinea Community Inc."
                             className="
@@ -91,7 +91,7 @@ export default function Hero() {
                                     md:h-16 md:w-16
                                     lg:h-[72px] lg:w-[72px]
                             "
-                        />
+                        /> */}
 
 
                         {/* Location */}
