@@ -240,23 +240,6 @@ export default function StoryContent() {
                                     </motion.span>
                                 </span>
                             </h2>
-
-                            <motion.p
-                                initial={{ opacity: 0, y: 25 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{
-                                    duration: 0.7,
-                                    delay: 0.2,
-                                    ease: "easeOut",
-                                }}
-                                className="mt-10 max-w-3xl text-lg leading-8 text-white/80 md:text-xl md:leading-9"
-                            >
-                                Kirap Pairap brings six people together through a shared love of
-                                music and a desire to create something meaningful for our Papua New
-                                Guinean community in Wellington.
-                            </motion.p>
-
                             {/* Purpose */}
                             <motion.div
                                 initial={{ opacity: 0, y: 25 }}
@@ -290,6 +273,25 @@ export default function StoryContent() {
                                     </p>
                                 </div>
                             </motion.div>
+                            <motion.p
+                                initial={{ opacity: 0, y: 25 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                    duration: 0.7,
+                                    delay: 0.2,
+                                    ease: "easeOut",
+                                }}
+                                className="mt-10 max-w-3xl text-lg leading-8 text-white/80 md:text-xl md:leading-9"
+                            >
+                                Kirap Pairap really brings the families in the Papua New Guinea community together through a shared love of
+                                music and a desire to create something meaningful. It is a space where we can celebrate our culture,
+                                share our stories and create music that resonates with people from all walks of life. More importantly,
+                                it is a space where we can ignite, preserve and pass on our culture to the next generation. This is why we
+                                do what we do, and why we are so passionate about our music and our community.
+                            </motion.p>
+
+
                         </div>
                     </div>
                 </div>
@@ -454,7 +456,7 @@ export default function StoryContent() {
                         className="mt-16 flex flex-wrap gap-4"
                     >
                         <a
-                            href="/kirap-pairap/#members"
+                            href="/kirap-pairap/band/"
                             className="rounded-full bg-white px-7 py-4 text-sm font-bold uppercase tracking-[0.15em] text-black transition-transform hover:-translate-y-1"
                         >
                             Meet the Band

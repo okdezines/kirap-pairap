@@ -29,15 +29,15 @@ export default function Hero() {
             <motion.div
                 style={{ y: backgroundY }}
                 className="
-    absolute
-    -inset-y-[8%]
-    inset-x-0
-    bg-[url('/kirap-pairap/images/hero/plume.png')]
-    bg-cover
-    bg-[center_55%]
-    bg-no-repeat
-    will-change-transform
-  "
+                        absolute
+                        -inset-y-[8%]
+                        inset-x-0
+                        bg-[url('/kirap-pairap/images/hero/plume.png')]
+                        bg-cover
+                        bg-[center_55%]
+                        bg-no-repeat
+                        will-change-transform
+                    "
             />
 
             {/* Dark overlay */}
@@ -101,9 +101,9 @@ export default function Hero() {
                                 text-xs
                                 // font-semibold
                                 uppercase
-                                leading-3.5
+                                leading-2.5
                                 tracking-[0.35em]
-                                text-[#FFF5EE]
+                                text-[#899996]
                                 md:text-sm
                             "
                         >
@@ -167,7 +167,7 @@ export default function Hero() {
                                 },
                             },
                         }}
-                        className="max-w-xl text-base font-semibold leading-7 text-[#FFF5EE] md:text-lg"
+                        className="max-w-xl text-base font-semibold leading-7 text-[#899996] md:text-lg"
                     >
                         One community. Building a band to ignite, preserve and pass on
                         Papua New Guinea&apos;s musical and cultural heritage.
@@ -186,7 +186,7 @@ export default function Hero() {
                                 },
                             },
                         }}
-                        className="mt-6 text-xs font-semibold uppercase tracking-[0.35em] text-[#FFF5EE]"
+                        className="mt-6 text-xs font-bold uppercase tracking-[0.35em] text-[#e7000b]"
                     >
                         Ignite • Preserve • Pass On
                     </motion.p>
@@ -210,16 +210,16 @@ export default function Hero() {
                     >
                         <Link
                             href="/story/"
-                            className="bg-red-600 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white transition hover:bg-red-500"
+                            className="rounded-lg border border-white/30 bg-black/40 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
                         >
                             Our Story →
                         </Link>
 
                         <Link
                             href="/support/"
-                            className="border border-white/30 bg-black/40 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
+                            className="rounded-lg border border-white/30 bg-red-600 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
                         >
-                            Support the Band →
+                            Contribute →
                         </Link>
                     </motion.div>
                 </motion.div>
