@@ -101,13 +101,13 @@ export default function Hero() {
                                 text-xs
                                 // font-semibold
                                 uppercase
-                                leading-2.5
-                                tracking-[0.35em]
+                                leading-3
+                                tracking-[0.27em]
                                 text-[#899996]
                                 md:text-sm
                             "
                         >
-                            Papua New Guinea • Wellington • Community • Inc. New Zealand
+                            Papua New Guinea• Wellington• Community• Inc• New Zealand
                         </p>
                     </motion.div>
 

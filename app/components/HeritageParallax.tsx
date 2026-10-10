@@ -130,7 +130,7 @@ export default function HeritageParallax() {
 
                     <div className="mt-8 h-[2px] w-16 bg-red-600" />
 
-                    <p className="mt-8 max-w-lg text-base leading-7 text-white/70 md:text-lg">
+                    <p className="mt-5 max-w-xl text-base font-semibold leading-7 text-[#b2c5c2] md:text-lg md:leading-8">
                         What was carried through story, song and community
                         continues through the music we create today.
                     </p>
@@ -162,13 +162,13 @@ export default function HeritageParallax() {
 
                     <div className="my-8 h-[2px] w-16 bg-red-600" />
 
-                    <p className="max-w-xl text-base font-semibold leading-7 text-[#FFF5EE] md:text-lg md:leading-8">
+                    <p className="max-w-xl text-base font-semibold leading-7 text-[#cdf9f3] md:text-lg md:leading-8">
                         Kirap Pairap is about more than making music. It is about
                         keeping our connection to Papua New Guinea alive through
                         music, culture and community here in Wellington.
                     </p>
 
-                    <p className="mt-5 max-w-xl text-base font-semibold leading-7 text-[#FFF5EE] md:text-lg md:leading-8">
+                    <p className="mt-5 max-w-xl text-base font-semibold leading-7 text-[#cdf9f3] md:text-lg md:leading-8">
                         We want the next generation to grow up hearing the music,
                         seeing the culture and knowing that these stories belong
                         to them too.
