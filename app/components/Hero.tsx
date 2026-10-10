@@ -17,7 +17,7 @@ export default function Hero() {
     const backgroundY = useTransform(
         scrollYProgress,
         [0, 1],
-        ["0%", "11%"]
+        ["0%", "12%"]
     );
 
     return (
