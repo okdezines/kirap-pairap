@@ -71,6 +71,24 @@ export default function CommunityCTA() {
                             </motion.span>
                         </span>
                     </h2>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{
+                            duration: 0.8,
+                            delay: 0.15,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="mt-24 border-t border-white/15 pt-8"
+                    >
+                        <p className="max-w-4xl text-2xl font-bold leading-relaxed text-white/80 md:text-4xl">
+                            From Papua New Guinea to Wellington —
+                            <span className="text-red-500">
+                                {" "}our music carries our story with us.
+                            </span>
+                        </p>
+                    </motion.div>
 
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -98,34 +116,17 @@ export default function CommunityCTA() {
                             </a>
 
                             <a
-                                href="#gallery"
-                                className="rounded-full border border-white/30 px-7 py-3 text-sm font-bold transition duration-300 hover:-translate-y-1 hover:border-white"
+                                href="https://www.facebook.com/profile.php?id=61560083857438"
+                                className="rounded-full bg-red-600 border border-white/30 px-7 py-3 text-sm font-bold transition duration-300 hover:-translate-y-1 hover:border-white"
                             >
-                                Follow Our Journey
+                                Follow our Facebook page
                             </a>
                         </div>
                     </motion.div>
 
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{
-                        duration: 0.8,
-                        delay: 0.15,
-                        ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className="mt-24 border-t border-white/15 pt-8"
-                >
-                    <p className="max-w-4xl text-2xl font-bold leading-relaxed text-white/80 md:text-4xl">
-                        From Papua New Guinea to Wellington —
-                        <span className="text-red-500">
-                            {" "}our music carries our story with us.
-                        </span>
-                    </p>
-                </motion.div>
+
 
             </div>
         </section>

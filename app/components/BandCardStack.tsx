@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useRef, useState } from "react";
 import {
@@ -481,6 +482,7 @@ export default function BandCardStack() {
                 </div>
 
             </div>
+
         </section>
     );
 }

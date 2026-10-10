@@ -4,8 +4,7 @@ import Fundraising from "./components/Fundraising";
 import Hero from "./components/Hero";
 import Journey from "./components/Journey";
 // import OurPurpose from "./components/OurPurpose";
-import BandCardStack from "./components/BandCardStack";
-import PracticeSessions from "./components/PracticeSessions";
+// import PracticeSessions from "./components/PracticeSessions";
 // import OurStory from "./components/OurStory";
 import BandMembers from "./components/BandMembers";
 import HeritageParallax from "./components/HeritageParallax";
@@ -16,13 +15,11 @@ export default function Home() {
       <Hero />
       {/* <OurPurpose /> */}
       <HeritageParallax />
-      <BandCardStack />
       <BandMembers />
       {/* <OurStory /> */}
-
       <Fundraising />
       <Journey />
-      <PracticeSessions />
+      {/* <PracticeSessions /> */}
       <CommunityCTA />
       <Footer />
     </main>

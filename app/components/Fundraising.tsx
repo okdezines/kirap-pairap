@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
@@ -180,10 +181,11 @@ export default function Fundraising() {
                         </div>
                     </div>
 
+
                 </div>
 
                 {/* Equipment */}
-                <div className="mt-16">
+                {/* <div className="mt-16">
 
                     <p className="mb-8 text-xs font-bold uppercase tracking-[0.35em] text-white/60">
                         What we're building
@@ -233,7 +235,7 @@ export default function Fundraising() {
                         ))}
                     </div>
 
-                </div>
+                </div> */}
 
                 {/* Message */}
                 <div className="mt-20 max-w-3xl">
@@ -242,6 +244,15 @@ export default function Fundraising() {
                         helping us turn an idea into music.
                     </p>
                 </div>
+                <br />
+                <br />
+                <br />
+                <Link
+                    href="/support/"
+                    className="rounded-lg border border-white/30 bg-black px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
+                >
+                    Contribute →
+                </Link>
 
             </div>
         </section>
