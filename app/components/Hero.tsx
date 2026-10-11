@@ -27,12 +27,15 @@ export default function Hero() {
         >
             {/* Parallax hero artwork */}
             <motion.div
-                style={{ y: backgroundY }}
+                style={{
+                    y: backgroundY,
+                    scaleX: -1,
+                }}
                 className="
                         absolute
                         -inset-y-[8%]
                         inset-x-0
-                        bg-[url('/kirap-pairap/images/hero/plume.png')]
+                        bg-[url('/kirap-pairap/images/hero/story.png')]
                         bg-cover
                         bg-[center_55%]
                         bg-no-repeat
@@ -97,15 +100,16 @@ export default function Hero() {
                         {/* Location */}
                         <p
                             className="
-                                max-w-xl
-                                text-xs
-                                // font-semibold
-                                uppercase
-                                leading-3
-                                tracking-[0.27em]
-                                text-[#899996]
-                                md:text-sm
-                            "
+  max-w-xl
+  text-xs
+  font-bold
+  uppercase
+  leading-[1.45]
+  tracking-[0.35em]
+  text-[#FFF5EE]
+  md:text-sm
+  md:leading-[1.5]
+"
                         >
                             Papua New Guinea• Wellington• Community• Inc• New Zealand
                         </p>
@@ -127,14 +131,63 @@ export default function Hero() {
                                 },
                             },
                         }}
-                        className="text-[clamp(4.5rem,10vw,9rem)] font-black uppercase leading-[0.72] tracking-[-0.06em] text-white"
+                        className="
+                            hero-title
+                            text-[clamp(4.5rem,10vw,9rem)]
+                            font-black
+                            uppercase
+                            leading-[0.72]
+                            tracking-[-0.06em]
+    "
                     >
                         Kirap
 
                         <span className="block">
-                            Pairap<span className="text-red-600">.</span>
+                            Pairap<span className="hero-title-dot">.</span>
                         </span>
                     </motion.h1>
+
+                    {/* Tagline */}
+                    <motion.div
+                        variants={{
+                            hidden: {
+                                opacity: 0,
+                            },
+                            visible: {
+                                opacity: 1,
+                                transition: {
+                                    duration: 0.8,
+                                },
+                            },
+                        }}
+                        className="
+    mt-4
+    flex
+    w-fit
+    items-center
+    gap-[10px]
+    whitespace-nowrap
+    text-[10px]
+    font-black
+    uppercase
+    tracking-[0.18em]
+    text-red-500
+
+    sm:text-[16px]
+    sm:gap-3
+
+    md:mt-6
+    md:gap-5
+    md:text-[16px]
+    md:tracking-[0.14em]
+  "
+                    >
+                        <span>Ignite</span>
+                        <span className="text-red-600">•</span>
+                        <span>Preserve</span>
+                        <span className="text-red-600">•</span>
+                        <span>Pass On</span>
+                    </motion.div>
 
                     {/* Animated red line */}
                     <motion.div
@@ -149,47 +202,24 @@ export default function Hero() {
                                 },
                             },
                         }}
-                        className="my-8 h-[2px] w-16 origin-left bg-red-600"
+                        className="mt-6 mb-2 h-[2px] w-16 origin-left bg-red-600"
                     />
 
-                    {/* Description */}
+
                     <motion.p
-                        variants={{
-                            hidden: {
-                                opacity: 0,
-                                y: 20,
-                            },
-                            visible: {
-                                opacity: 1,
-                                y: 0,
-                                transition: {
-                                    duration: 0.6,
-                                },
-                            },
-                        }}
-                        className="max-w-xl text-base font-semibold leading-7 text-[#899996] md:text-lg"
+                        className="
+                        hero-description
+                        max-w-xl
+                        uppercase
+                        text-large
+                        leading-7
+                        text-white/70
+                    "
                     >
-                        One community. Building a band to ignite, preserve and pass on
+                        One community. Building a music band to ignite, preserve and pass on
                         Papua New Guinea&apos;s musical and cultural heritage.
                     </motion.p>
 
-                    {/* Tagline */}
-                    <motion.p
-                        variants={{
-                            hidden: {
-                                opacity: 0,
-                            },
-                            visible: {
-                                opacity: 1,
-                                transition: {
-                                    duration: 0.8,
-                                },
-                            },
-                        }}
-                        className="mt-6 text-xs font-bold uppercase tracking-[0.35em] text-[#e7000b]"
-                    >
-                        Ignite • Preserve • Pass On
-                    </motion.p>
 
                     {/* CTA buttons */}
                     <motion.div
@@ -219,7 +249,7 @@ export default function Hero() {
                             href="/support/"
                             className="rounded-lg border border-white/30 bg-red-600 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
                         >
-                            Contribute →
+                            Support the Band →
                         </Link>
                     </motion.div>
                 </motion.div>

@@ -35,3 +35,62 @@ html {
 section {
   scroll-margin-top: 100px;
 }
+
+.hero-description {
+  font-family: math, serif;
+}
+
+/* Kirap Pairap desktop 3D hero title */
+@media (min-width: 768px) {
+  .hero-title {
+    color: #fff8e9;
+
+    -webkit-text-stroke: 1px rgba(255, 191, 73, 0.75);
+
+    text-shadow:
+      0 -2px 0 rgba(255, 255, 255, 0.9),
+      2px 2px 0 #d89a28,
+      3px 3px 0 #a85d12,
+      4px 4px 0 #743408,
+      5px 5px 0 #4b2107,
+      6px 6px 0 #291104,
+      9px 11px 12px rgba(0, 0, 0, 0.65);
+  }
+
+  .hero-title-dot {
+    color: #ef1b24;
+
+    -webkit-text-stroke: 1px #ff6a3d;
+
+    text-shadow:
+      2px 2px 0 #8b0909,
+      4px 4px 0 #410404,
+      6px 7px 10px rgba(0, 0, 0, 0.7);
+  }
+}
+/* Kirap Pairap mobile 3D hero title */
+.hero-title {
+  color: #fff4dd;
+
+  -webkit-text-stroke: 0.7px rgba(255, 191, 73, 0.8);
+
+  text-shadow:
+    /* top highlight */
+    0 -1px 0 rgba(255, 255, 255, 0.8),
+    /* gold bevel */ 1px 1px 0 #d89a28,
+    2px 2px 0 #a85d12,
+    /* small 3D depth */ 3px 3px 0 #743408,
+    4px 4px 0 #3d1905,
+    /* separation from background */ 6px 7px 9px rgba(0, 0, 0, 0.7);
+}
+
+.hero-title-dot {
+  color: #ef1b24;
+
+  -webkit-text-stroke: 0.7px #ff6a3d;
+
+  text-shadow:
+    1px 1px 0 #8b0909,
+    2px 2px 0 #410404,
+    4px 5px 7px rgba(0, 0, 0, 0.7);
+}

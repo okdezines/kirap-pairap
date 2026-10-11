@@ -82,7 +82,10 @@ export default function HeritageParallax() {
         >
             {/* Parallax artwork */}
             <motion.div
-                style={{ y: backgroundY }}
+                style={{
+                    y: backgroundY,
+                    scaleX: -1,
+                }}
                 className="absolute -inset-y-[10%] inset-x-0"
             >
                 <div

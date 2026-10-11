@@ -15,10 +15,10 @@ export default function Home() {
       <Hero />
       {/* <OurPurpose /> */}
       <HeritageParallax />
-      <BandMembers />
+      <Journey />
       {/* <OurStory /> */}
       <Fundraising />
-      <Journey />
+      <BandMembers />
       {/* <PracticeSessions /> */}
       <CommunityCTA />
       <Footer />
