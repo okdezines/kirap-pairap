@@ -105,8 +105,8 @@ export default function Hero() {
   font-bold
   uppercase
   leading-[1.45]
-  tracking-[0.35em]
-  text-[#FFF5EE]
+  tracking-[0.31em]
+  text-[#cd853f]
   md:text-sm
   md:leading-[1.5]
 "
@@ -202,7 +202,7 @@ export default function Hero() {
                                 },
                             },
                         }}
-                        className="mt-6 mb-2 h-[2px] w-16 origin-left bg-red-600"
+                        className="my-8  h-[2px] w-16 origin-left bg-red-600"
                     />
 
 
@@ -210,10 +210,11 @@ export default function Hero() {
                         className="
                         hero-description
                         max-w-xl
-                        uppercase
+                        // uppercase
                         text-large
                         leading-7
-                        text-white/70
+                        tracking-[0.14em]
+                        text-[#d5c3af]
                     "
                     >
                         One community. Building a music band to ignite, preserve and pass on
@@ -247,7 +248,7 @@ export default function Hero() {
 
                         <Link
                             href="/support/"
-                            className="rounded-lg border border-white/30 bg-red-600 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
+                            className="rounded-md border border-white/30 bg-[#289d1e] px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
                         >
                             Support the Band →
                         </Link>
