@@ -41,7 +41,7 @@ export default function Navbar() {
                     <Link
                         href="/"
                         className="group flex items-center gap-3"
-                        aria-label="Kirap Pairap home"
+                        aria-label="Kirapim Paiya home"
                     >
                         {/* <img
                             src="/kirap-pairap/images/logo/kirap-pairap-logo-02.png"
@@ -67,7 +67,7 @@ export default function Navbar() {
             md:text-lg
         "
                         >
-                            Kirap Pairap
+                            Kirapim Paiya
                         </span>
                     </Link>
 
@@ -147,7 +147,7 @@ export default function Navbar() {
                             />
 
                             <span className="text-lg font-black uppercase tracking-[0.15em] text-white">
-                                Kirap Pairap
+                                Kirapim Paiya
                             </span>
                         </Link>
 

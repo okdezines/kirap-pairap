@@ -100,16 +100,16 @@ export default function Hero() {
                         {/* Location */}
                         <p
                             className="
-  max-w-xl
-  text-xs
-  font-bold
-  uppercase
-  leading-[1.45]
-  tracking-[0.31em]
-  text-[#d2b48c]
-  md:text-sm
-  md:leading-[1.5]
-"
+                                max-w-xl
+                                text-xs
+                                font-bold
+                                uppercase
+                                leading-[1.45]
+                                tracking-[0.25em]
+                                text-[#d2b48c]
+                                md:text-sm
+                                md:leading-[1.5]
+                                "
                         >
                             Papua New Guinea• Wellington• Community• Inc• New Zealand
                         </p>
@@ -140,10 +140,10 @@ export default function Hero() {
                             tracking-[-0.06em]
     "
                     >
-                        Kirap
+                        Kirapim
 
                         <span className="block">
-                            Pairap<span className="hero-title-dot">.</span>
+                            Paiya<span className="hero-title-dot">.</span>
                         </span>
                     </motion.h1>
 
