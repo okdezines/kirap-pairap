@@ -37,7 +37,8 @@ section {
 }
 
 .hero-description {
-  font-family: math, serif;
+  /* font-family: math, serif; */
+  /* font-style: uppercase; */
 }
 
 /* Kirap Pairap desktop 3D hero title */

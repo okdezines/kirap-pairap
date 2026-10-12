@@ -43,7 +43,7 @@ export default function Navbar() {
                         className="group flex items-center gap-3"
                         aria-label="Kirap Pairap home"
                     >
-                        <img
+                        {/* <img
                             src="/kirap-pairap/images/logo/kirap-pairap-logo-02.png"
                             alt=""
                             className="
@@ -55,7 +55,7 @@ export default function Navbar() {
             group-hover:scale-105
             md:h-12
         "
-                        />
+                        /> */}
 
                         <span
                             className="
@@ -67,7 +67,7 @@ export default function Navbar() {
             md:text-lg
         "
                         >
-                            {/* Kirap Pairap */}
+                            Kirap Pairap
                         </span>
                     </Link>
 

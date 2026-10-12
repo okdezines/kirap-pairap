@@ -29,7 +29,7 @@ export default function Hero() {
             <motion.div
                 style={{
                     y: backgroundY,
-                    scaleX: -1,
+                    // scaleX: -1,
                 }}
                 className="
                         absolute
@@ -84,8 +84,8 @@ export default function Hero() {
                         className="mb-8 flex items-center gap-4 md:gap-5"
                     >
                         {/* WPNGC Badge */}
-                        {/* <img
-                            src="/kirap-pairap/images/community/wpngc-logo.png"
+                        <img
+                            src="/kirap-pairap/images/logo/gloss.png"
                             alt="Wellington Papua New Guinea Community Inc."
                             className="
                                     h-12 w-12
@@ -94,7 +94,7 @@ export default function Hero() {
                                     md:h-16 md:w-16
                                     lg:h-[72px] lg:w-[72px]
                             "
-                        /> */}
+                        />
 
 
                         {/* Location */}
@@ -106,7 +106,7 @@ export default function Hero() {
   uppercase
   leading-[1.45]
   tracking-[0.31em]
-  text-[#cd853f]
+  text-[#d2b48c]
   md:text-sm
   md:leading-[1.5]
 "
@@ -208,14 +208,15 @@ export default function Hero() {
 
                     <motion.p
                         className="
-                        hero-description
-                        max-w-xl
-                        // uppercase
-                        text-large
-                        leading-7
-                        tracking-[0.14em]
-                        text-[#d5c3af]
-                    "
+                            hero-description
+                            max-w-xl
+                            text-[15px]
+                            md:text-[18px]
+                            lg:text-[19px]
+                            leading-[1.45]
+                            tracking-[0.14em]
+                            text-[#d2b48c]
+                        "
                     >
                         One community. Building a music band to ignite, preserve and pass on
                         Papua New Guinea&apos;s musical and cultural heritage.
@@ -241,14 +242,16 @@ export default function Hero() {
                     >
                         <Link
                             href="/story/"
-                            className="rounded-lg border border-white/30 bg-black/40 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
+                            className="rounded-lg border border-white/30 bg-[#e7c220] px-8 py-4 text-xs font-black 
+                            uppercase tracking-[0.2em] text-black backdrop-blur-sm transition hover:border-white 
+                            hover:bg-[#151512] hover:text-white"
                         >
                             Our Story →
                         </Link>
 
                         <Link
                             href="/support/"
-                            className="rounded-md border border-white/30 bg-[#289d1e] px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
+                            className="rounded-md border border-white/30 bg-red-600 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
                         >
                             Support the Band →
                         </Link>
