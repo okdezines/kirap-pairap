@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
 import "./globals.css";
 import Navbar from "./components/Navbar";
@@ -16,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className="antialiased">
+      <body className={`antialiased ${GeistSans.className} antialiased`}>
         <Navbar />
         {children}
       </body>

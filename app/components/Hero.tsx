@@ -104,19 +104,19 @@ export default function Hero() {
                                 text-xs
                                 font-bold
                                 uppercase
-                                leading-[1.45]
+                                leading-[1.15]
                                 tracking-[0.25em]
                                 text-[#d2b48c]
                                 md:text-sm
-                                md:leading-[1.5]
+                                md:leading-[1.3]
                                 "
                         >
                             Papua New Guinea• Wellington• Community• Inc• New Zealand
                         </p>
                     </motion.div>
 
-                    {/* Main title */}
-                    <motion.h1
+                    {/* Main logo */}
+                    <motion.div
                         variants={{
                             hidden: {
                                 opacity: 0,
@@ -131,21 +131,14 @@ export default function Hero() {
                                 },
                             },
                         }}
-                        className="
-                            hero-title
-                            text-[clamp(4.5rem,10vw,9rem)]
-                            font-black
-                            uppercase
-                            leading-[0.72]
-                            tracking-[-0.06em]
-    "
+                        className="w-full max-w-[560px] md:max-w-[650px]"
                     >
-                        Kirapim
-
-                        <span className="block">
-                            Paiya<span className="hero-title-dot">.</span>
-                        </span>
-                    </motion.h1>
+                        <img
+                            src="/kirap-pairap/images/logo/kp.png"
+                            alt="Kirapim Paiya"
+                            className="h-auto w-full object-contain"
+                        />
+                    </motion.div>
 
                     {/* Tagline */}
                     <motion.div
@@ -204,24 +197,21 @@ export default function Hero() {
                         }}
                         className="my-8  h-[2px] w-16 origin-left bg-red-600"
                     />
-
-
                     <motion.p
                         className="
                             hero-description
                             max-w-xl
-                            text-[15px]
+                            text-[14px]
                             md:text-[18px]
                             lg:text-[19px]
-                            leading-[1.45]
-                            tracking-[0.14em]
+                            leading-[1.33]
+                            tracking-[0.12em]
                             text-[#d2b48c]
                         "
                     >
                         One community. Building a music band to ignite, preserve and pass on
                         Papua New Guinea&apos;s musical and cultural heritage.
                     </motion.p>
-
 
                     {/* CTA buttons */}
                     <motion.div
@@ -242,18 +232,18 @@ export default function Hero() {
                     >
                         <Link
                             href="/story/"
-                            className="rounded-lg border border-white/30 bg-[#e7c220] px-8 py-4 text-xs font-black 
+                            className="hero-bevel-btn rounded-lg border border-white/30 bg-[#e7c220] px-8 py-4 text-xs font-black 
                             uppercase tracking-[0.2em] text-black backdrop-blur-sm transition hover:border-white 
                             hover:bg-[#151512] hover:text-white"
                         >
-                            Our Story →
+                            Our Story
                         </Link>
 
                         <Link
                             href="/support/"
-                            className="rounded-md border border-white/30 bg-red-600 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
+                            className="hero-bevel-btn rounded-md border border-white/30 bg-red-600 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-black"
                         >
-                            Support the Band →
+                            Support the Band
                         </Link>
                     </motion.div>
                 </motion.div>
