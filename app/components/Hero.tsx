@@ -200,6 +200,7 @@ export default function Hero() {
                     <motion.p
                         className="
                             hero-description
+                            font-bold
                             max-w-xl
                             text-[14px]
                             md:text-[18px]

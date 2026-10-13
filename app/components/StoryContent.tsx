@@ -23,7 +23,7 @@ export default function StoryContent() {
                         </motion.p>
 
                         {/* Main heading */}
-                        <h1 className="max-w-6xl text-6xl font-black uppercase leading-[0.84] tracking-tight md:text-8xl lg:text-[9rem]">
+                        <h1 className="max-w-6xl text-[clamp(2.65rem,12.5vw,3.75rem)] font-black uppercase leading-[0.84] tracking-[-0.04em] md:text-8xl lg:text-[9rem]">
                             <span className="block overflow-hidden">
                                 <motion.span
                                     initial={{ y: "110%" }}
@@ -220,7 +220,7 @@ export default function StoryContent() {
                                         }}
                                         className="block"
                                     >
-                                        Six people.
+                                        Creative people.
                                     </motion.span>
                                 </span>
 

@@ -18,7 +18,7 @@ export default function BandPageContent() {
             The Band
           </motion.p>
 
-          <h1 className="text-6xl font-black uppercase leading-[0.84] tracking-tight md:text-8xl lg:text-[9rem]">
+          <h1 className="text-[clamp(2.8rem,13vw,3.75rem)] font-black uppercase leading-[0.84] tracking-[-0.04em] md:text-8xl lg:text-[9rem]">
             <span className="block overflow-hidden">
               <motion.span
                 initial={{ y: "110%" }}

@@ -169,7 +169,14 @@ export default function Navbar() {
 
                         <div className="flex flex-col">
                             <Link
-                                href="#story"
+                                href="/support"
+                                onClick={closeMenu}
+                                className="border-t border-white/15 py-3 text-2xl font-black uppercase tracking-tight transition hover:text-red-500"
+                            >
+                                Support Us
+                            </Link>
+                            <Link
+                                href="/story/"
                                 onClick={closeMenu}
                                 className="border-t border-white/15 py-3 text-2xl font-black uppercase tracking-tight transition hover:text-red-500"
                             >
@@ -199,13 +206,7 @@ export default function Navbar() {
                                 Gallery
                             </Link>
 
-                            <Link
-                                href="/support"
-                                onClick={closeMenu}
-                                className="border-t border-white/15 py-3 text-2xl font-black uppercase tracking-tight transition hover:text-red-500"
-                            >
-                                Support Us
-                            </Link>
+
                         </div>
                     </nav>
 

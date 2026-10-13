@@ -118,9 +118,18 @@ export default function SupportPageContent() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.15 }}
-                            className="border-t border-white/20 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0"
+                            className="
+                                rounded-[2rem]
+                                border border-[#d8a72f]/35
+                                bg-[#f3ead8]
+                                p-6
+                                text-black
+                                shadow-[0_24px_80px_rgba(0,0,0,0.35)]
+                                md:p-8
+                                lg:p-10
+                                "
                         >
-                            <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/45">
+                            <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600">
                                 Make A Contribution
                             </p>
 
@@ -210,9 +219,9 @@ export default function SupportPageContent() {
                                                 setSelectedAmount(amount);
                                                 setCustomAmount("");
                                             }}
-                                            className={`border px-4 py-6 text-xl font-black transition-all ${isSelected
-                                                    ? "border-red-600 bg-red-600 text-white"
-                                                    : "border-white/20 text-white hover:border-white/70"
+                                            className={`rounded-xl border px-4 py-6 text-xl font-black transition-all duration-200 ${isSelected
+                                                ? "border-red-600 bg-red-600 text-white shadow-lg"
+                                                : "border-black/15 bg-white/45 text-black hover:border-red-600 hover:bg-white"
                                                 }`}
                                         >
                                             ${amount}
@@ -227,8 +236,8 @@ export default function SupportPageContent() {
                                     Enter another contribution amount
                                 </label>
 
-                                <div className="flex items-center border border-white/20 transition-colors focus-within:border-red-600">
-                                    <span className="pl-5 text-lg font-black text-white/50">
+                                <div className="flex items-center rounded-xl border border-black/15 bg-white/45 transition-all focus-within:border-red-600 focus-within:bg-white">
+                                    <span className="pl-5 text-lg font-black text-black/45">
                                         NZ$
                                     </span>
 
@@ -254,7 +263,7 @@ export default function SupportPageContent() {
                                                 setSelectedAmount(null);
                                             }
                                         }}
-                                        className="w-full bg-transparent px-3 py-5 text-lg font-black text-white outline-none placeholder:text-white/30"
+                                        className="w-full bg-transparent px-3 py-5 text-lg font-black text-black outline-none placeholder:text-black/35"
                                     />
                                 </div>
                             </div>
@@ -265,8 +274,8 @@ export default function SupportPageContent() {
                                 onClick={handleContribution}
                                 disabled={!selectedAmount || selectedAmount <= 0}
                                 className={`mt-4 w-full px-6 py-6 text-sm font-bold uppercase tracking-[0.2em] transition-all ${selectedAmount && selectedAmount > 0
-                                        ? "bg-red-600 text-white hover:bg-red-500"
-                                        : "cursor-not-allowed bg-white/10 text-white/30"
+                                    ? "bg-red-600 text-white hover:bg-red-500"
+                                    : "cursor-not-allowed bg-white/10 text-white/30"
                                     }`}
                             >
                                 {selectedAmount
@@ -274,12 +283,10 @@ export default function SupportPageContent() {
                                     : "Choose an amount"}
                             </button>
 
-                            <div className="mt-5 flex items-center gap-3">
-                                <span className="h-2 w-2 rounded-full bg-red-500" />
-
-                                <p className="text-xs leading-5 text-white/40">
-                                    Stripe sandbox payments are enabled for testing. No real
-                                    money will be charged.
+                            <div className="mt-5 flex items-start gap-3 text-xs leading-5 text-black/50">
+                                <span className="mt-[6px] h-2 w-2 shrink-0 rounded-full bg-red-500" />
+                                <p>
+                                    Stripe sandbox payments are enabled for testing. No real money will be charged.
                                 </p>
                             </div>
                         </motion.div>
